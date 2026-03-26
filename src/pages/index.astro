@@ -6,12 +6,12 @@ import WorkshopCard from "../components/WorkshopCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   faqs,
+  featuredTestimonials,
   featuredWorkshops,
   personSchema,
   process,
   site,
   stats,
-  testimonials,
   workshopPillars,
 } from "../data/site";
 ---
@@ -118,7 +118,7 @@ import {
       eyebrow="Testimonials"
       title="What performers say after the work."
     />
-    <TestimonialGrid testimonials={testimonials.slice(0, 3)} />
+    <TestimonialGrid testimonials={featuredTestimonials} />
   </section>
 
   <section class="section">

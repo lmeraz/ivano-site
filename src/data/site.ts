@@ -417,6 +417,26 @@ export const workshops: Workshop[] = [
 
 export const featuredWorkshops = workshops.slice(0, 2);
 
+export const featuredTestimonials = testimonials.slice(0, 3);
+
+export const idealStudentPillars = [
+  {
+    title: "The willing",
+    description:
+      "Someone who is not afraid to get their hands dirty. This does not exclude people who feel insecure -- on the contrary, they are the best to have in this kind of work.",
+  },
+  {
+    title: "The insecure",
+    description:
+      'As someone who is insecure, shy, and introverted himself, Ivano found in "masked" play the freedom to express himself and then bring that freedom into real life.',
+  },
+  {
+    title: "The curious",
+    description:
+      '"I do not believe that theatre is therapy, but I do believe that physical work leads to changes we can truly feel, allowing us to discover something new about ourselves."',
+  },
+];
+
 export function personSchema(path = "/") {
   return {
     "@context": "https://schema.org" as const,
@@ -430,6 +450,34 @@ export function personSchema(path = "/") {
       "@type": "City" as const,
       name: site.baseCity,
     },
+  };
+}
+
+export function eventSchema(workshop: Workshop) {
+  return {
+    "@context": "https://schema.org" as const,
+    "@type": "Event" as const,
+    name: workshop.title,
+    description: workshop.summary,
+    startDate: workshop.startDate,
+    endDate: workshop.endDate,
+    eventAttendanceMode:
+      workshop.format === "In-person"
+        ? "https://schema.org/OfflineEventAttendanceMode"
+        : "https://schema.org/MixedEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place" as const,
+      name: workshop.venue,
+      address: workshop.location,
+    },
+    organizer: {
+      "@type": "Person" as const,
+      name: site.name,
+      email: site.email,
+      url: site.siteUrl,
+    },
+    url: `${site.siteUrl}/workshops/${workshop.slug}/`,
   };
 }
 
