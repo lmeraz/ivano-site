@@ -5,10 +5,10 @@
   --ink: #1a1714;
   --muted: #6b6560;
   --line: rgba(26, 23, 20, 0.1);
-  --burgundy: #7a2e2e;
-  --burgundy-soft: #a04040;
-  --gold: #b8922f;
-  --gold-soft: rgba(184, 146, 47, 0.15);
+  --green: #2e6b4a;
+  --green-soft: #3d8760;
+  --sage: #6b8f55;
+  --sage-soft: rgba(107, 143, 85, 0.15);
   --shadow: 0 20px 50px rgba(26, 23, 20, 0.08);
   --shadow-lg: 0 32px 72px rgba(26, 23, 20, 0.12);
   --content-width: min(1140px, calc(100vw - 2rem));
@@ -135,7 +135,7 @@ ul, ol {
 
 .brand__eyebrow,
 .eyebrow {
-  color: var(--burgundy);
+  color: var(--green);
   font-family: var(--body-font);
   font-size: 0.7rem;
   font-weight: 600;
@@ -194,8 +194,8 @@ ul, ol {
   z-index: -1;
   background: linear-gradient(
     180deg,
-    rgba(232, 220, 200, 0.3),
-    rgba(232, 220, 200, 0.08)
+    rgba(215, 228, 210, 0.3),
+    rgba(215, 228, 210, 0.08)
   );
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -320,14 +320,14 @@ ul, ol {
 }
 
 .button--soft {
-  border-color: rgba(184, 146, 47, 0.25);
-  background: var(--gold-soft);
-  color: #6b5210;
+  border-color: rgba(107, 143, 85, 0.25);
+  background: var(--sage-soft);
+  color: #3d5a2e;
 }
 
 .button--soft:hover,
 .button--soft:focus-visible {
-  background: rgba(184, 146, 47, 0.22);
+  background: rgba(107, 143, 85, 0.22);
 }
 
 /* ─── Stats ─── */
@@ -363,7 +363,7 @@ ul, ol {
 
 .stat-card__value {
   display: block;
-  color: var(--burgundy);
+  color: var(--green);
   font-family: var(--display-font);
   font-size: 2rem;
   font-weight: 400;
@@ -451,7 +451,7 @@ ul, ol {
   top: 0.55rem;
   width: 6px;
   height: 1px;
-  background: var(--burgundy);
+  background: var(--green);
   content: "";
 }
 
@@ -589,15 +589,15 @@ ul, ol {
 }
 
 .status-pill--open {
-  background: rgba(184, 146, 47, 0.12);
-  color: #6b5210;
-  border-color: rgba(184, 146, 47, 0.2);
+  background: rgba(107, 143, 85, 0.12);
+  color: #3d5a2e;
+  border-color: rgba(107, 143, 85, 0.2);
 }
 
 .status-pill--waitlist {
-  background: rgba(122, 46, 46, 0.1);
-  color: var(--burgundy);
-  border-color: rgba(122, 46, 46, 0.15);
+  background: rgba(46, 107, 74, 0.1);
+  color: var(--green);
+  border-color: rgba(46, 107, 74, 0.15);
 }
 
 .status-pill--soon {
@@ -629,7 +629,7 @@ ul, ol {
 }
 
 .process-step__number {
-  color: var(--gold);
+  color: var(--sage);
   font-family: var(--display-font);
   font-size: 2.4rem;
   font-weight: 300;
@@ -687,7 +687,7 @@ ul, ol {
 }
 
 .banner .eyebrow {
-  color: var(--gold);
+  color: var(--sage);
 }
 
 .banner h2 {
@@ -875,7 +875,7 @@ ul, ol {
 .divider {
   width: 48px;
   height: 1px;
-  background: var(--burgundy);
+  background: var(--green);
   border: none;
   margin: 0;
 }
