@@ -1,0 +1,72 @@
+---
+import PastWorkshopList from "../../components/PastWorkshopList.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+import WorkshopCard from "../../components/WorkshopCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site, workshops, pastWorkshops } from "../../data/site";
+
+const upcomingWorkshops = workshops.filter((w) => w.status === "open");
+const futureWorkshops = workshops.filter((w) => w.status === "soon");
+---
+
+<BaseLayout
+  title="Workshops"
+  description={`Upcoming Commedia dell'Arte, Neutral Mask, and physical theatre workshops led by ${site.name}.`}
+>
+  <section class="page-hero section">
+    <div class="page-hero__inner reveal">
+      <p class="eyebrow">Workshop Calendar</p>
+      <h1>Commedia dell'Arte, Neutral Mask, and physical theatre.</h1>
+      <p>
+        International intensives rooted in the Lecoq pedagogy.
+        Each workshop is designed for play, experimentation, and rigorous
+        physical training in an intimate, supportive setting.
+      </p>
+    </div>
+    <aside class="page-hero__aside reveal">
+      <div class="detail-card">
+        <h2>What to expect</h2>
+        <ul class="check-list">
+          <li>Small groups with direct, personal feedback</li>
+          <li>Full-day intensives focused on the body and the mask</li>
+          <li>A space open to all levels unless noted otherwise</li>
+          <li>Scholarships available for underrepresented practitioners</li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  {upcomingWorkshops.length > 0 && (
+    <section class="section">
+      <SectionTitle
+        eyebrow="Registration Open"
+        title="Workshops accepting registration now."
+        description="Secure your place in the next intensive."
+      />
+      <div class="card-grid">
+        {upcomingWorkshops.map((workshop) => <WorkshopCard workshop={workshop} />)}
+      </div>
+    </section>
+  )}
+
+  {futureWorkshops.length > 0 && (
+    <section class="section section--tint">
+      <SectionTitle
+        eyebrow="Coming Soon"
+        title="Future workshops on the horizon."
+        description="Details and registration will open closer to the dates. Express your interest to be notified first."
+      />
+      <div class="card-grid">
+        {futureWorkshops.map((workshop) => <WorkshopCard workshop={workshop} />)}
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <SectionTitle
+      eyebrow="Past Workshops"
+      title="Where the work has been."
+    />
+    <PastWorkshopList workshops={pastWorkshops} />
+  </section>
+</BaseLayout>

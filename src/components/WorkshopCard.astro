@@ -1,0 +1,51 @@
+---
+import type { Workshop } from "../data/site";
+
+interface Props {
+  workshop: Workshop;
+}
+
+const { workshop } = Astro.props;
+---
+
+<article class="workshop-card reveal">
+  <div class="workshop-card__header">
+    <p class="eyebrow">{workshop.badge}</p>
+    <span class:list={["status-pill", `status-pill--${workshop.status}`]}>
+      {workshop.statusLabel}
+    </span>
+  </div>
+
+  <h3>{workshop.title}</h3>
+  <p class="workshop-card__strapline">{workshop.strapline}</p>
+
+  <ul class="meta-list">
+    <li><strong>Date</strong><span>{workshop.dateLabel}</span></li>
+    <li><strong>Format</strong><span>{workshop.format}</span></li>
+    <li><strong>Price</strong><span>{workshop.priceLabel}</span></li>
+  </ul>
+
+  <div class="tag-list">
+    <span class="pill">{workshop.level}</span>
+    <span class="pill">{workshop.location}</span>
+    <span class="pill">{workshop.seats}</span>
+  </div>
+
+  <div class="button-row">
+    <a class="button button--soft" href={`/workshops/${workshop.slug}/`}>
+      View details
+    </a>
+    {workshop.registrationUrl ? (
+      <a
+        class="button"
+        href={workshop.registrationUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Register
+      </a>
+    ) : (
+      <a class="button" href={workshop.fallbackUrl}>{workshop.fallbackLabel}</a>
+    )}
+  </div>
+</article>

@@ -1,0 +1,43 @@
+---
+import { site } from "../data/site";
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+
+const isActive = (href: string) => {
+  if (href === "/") {
+    return currentPath === "/";
+  }
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/">
+      <span class="brand__mark">IC</span>
+      <span>
+        <span class="brand__eyebrow">Theatre Pedagogue</span>
+        <span class="brand__name">{site.name}</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      {
+        site.navigation.map((item) => (
+          <a
+            class:list={["nav__link", { "nav__link--active": isActive(item.href) }]}
+            href={item.href}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a class="button nav__cta" href="/workshops/">Upcoming workshops</a>
+  </div>
+</header>

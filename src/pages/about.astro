@@ -1,0 +1,166 @@
+---
+import PastWorkshopList from "../components/PastWorkshopList.astro";
+import PillarGrid from "../components/PillarGrid.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import TestimonialGrid from "../components/TestimonialGrid.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site, testimonials, workshopPillars, pastWorkshops, personSchema } from "../data/site";
+---
+
+<BaseLayout
+  title="About"
+  description={`${site.name} is a theatre pedagogue and movement teacher trained in the Lecoq pedagogy, specializing in Commedia dell'Arte, Neutral Mask, and physical theatre.`}
+  structuredData={personSchema("/about/")}
+>
+  <section class="page-hero section">
+    <div class="page-hero__inner reveal">
+      <p class="eyebrow">About {site.name}</p>
+      <h1>A teacher who breaks down the fourth wall between himself and the student.</h1>
+      <p>
+        Theatre pedagogue and movement teacher trained in the Lecoq pedagogy.
+        A graduate of Il Cantiere Teatrale in Rome, Associate Lecoq Pedagogue
+        with Embodied Poetics, and certified Feldenkrais Method practitioner.
+      </p>
+    </div>
+    <aside class="page-hero__aside reveal">
+      <div class="portrait-card">
+        <img
+          src="/portrait.jpg"
+          alt="Ivano Conte -- theatre pedagogue and movement teacher"
+          class="portrait-card__img"
+          width="320"
+          height="320"
+          loading="eager"
+        />
+      </div>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="split-layout">
+      <div>
+        <SectionTitle
+          eyebrow="Biography"
+          title="Trained by masters, committed to the tradition."
+        />
+      </div>
+      <div class="story-stack">
+        <article class="info-card reveal">
+          <p>
+            Ivano Conte is a theatre pedagogue and movement teacher trained in
+            the Lecoq pedagogy. A graduate of Il Cantiere Teatrale in Rome,
+            where he later became a founding member and teacher, he has studied
+            with renowned masters including Norman Taylor, Amy Russell, Philippe
+            Gaulier, Lassaad Saidi, Antonio Fava, Jos&eacute; Piris Pereda, Mai Rojas,
+            Pablo Ibarluzea, Miguel &Aacute;ngel Guti&eacute;rrez, Vladimir Olshansky,
+            Carlo Boso, and Emmanuel Gallot-Lavall&eacute;e.
+          </p>
+        </article>
+        <article class="info-card reveal">
+          <p>
+            Ivano is an Associate Lecoq Pedagogue with Embodied Poetics, where
+            he contributes to the transmission of Jacques Lecoq's methodology,
+            focusing on movement analysis, Commedia dell'Arte, Bouffons, and
+            the creative process. He has taught internationally, leading
+            workshops in Italy, Canada, France, Corsica, and the United States.
+          </p>
+          <p>
+            In addition, Ivano is a certified Feldenkrais Method practitioner,
+            integrating somatic awareness into actor training to deepen
+            presence, precision, and creative freedom. His approach blends
+            rigorous physical discipline with imaginative exploration, guiding
+            performers toward authenticity, expressivity, and a living
+            theatrical presence.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <SectionTitle
+      eyebrow="Philosophy"
+      title="Mistakes are where discovery begins."
+      description="A teaching approach built on play within the group and a space open to experimentation."
+    />
+    <PillarGrid pillars={workshopPillars} />
+  </section>
+
+  <section class="section">
+    <div class="image-band">
+      <img src="/teaching.jpg" alt="Ivano leading a workshop -- students in movement on the floor" class="image-band__img reveal" width="1080" height="763" loading="lazy" />
+      <img src="/workshop-group.jpg" alt="Workshop ensemble with Commedia dell'Arte masks" class="image-band__img reveal" width="1080" height="1080" loading="lazy" />
+      <img src="/neutral-mask.jpg" alt="The Neutral Mask -- foundational tool of the Lecoq pedagogy" class="image-band__img reveal" width="1080" height="1350" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split-layout">
+      <div>
+        <SectionTitle
+          eyebrow="Teaching Story"
+          title="In his own words."
+        />
+      </div>
+      <div class="story-stack">
+        <article class="info-card reveal">
+          <p>
+            "My teaching philosophy is based on play within the group and on
+            creating a space that is open to experimentation -- and also to
+            mistakes -- with the understanding that mistakes lead us to learn
+            something and should not be demonized. I believe that a class in
+            which people feel free to try, and even to 'be terrible,' is a class
+            that is free to discover itself."
+          </p>
+        </article>
+        <article class="info-card reveal">
+          <p>
+            "I try to be the first to step into this mindset, bringing a
+            teaching style that is warm, smiling, and present, yet firm when
+            necessary so that students can truly learn. I aim to stay close to
+            my students, so they feel supported and open to listening to what is
+            being offered to them."
+          </p>
+        </article>
+        <article class="info-card reveal">
+          <p>
+            "Perhaps also because of my relatively young age, I do not yet feel
+            the need to build that large wall that often stands between teacher
+            and student. I believe that breaking down this 'fourth wall' between
+            myself and the student helps me better understand what they truly
+            need."
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <SectionTitle
+      eyebrow="Ideal Student"
+      title="Someone willing to step up and put themselves on the line."
+      description="Not just professionals -- anyone drawn to physical expression, presence, and play."
+    />
+    <PillarGrid pillars={[
+      { title: "The willing", description: "Someone who is not afraid to get their hands dirty. This does not exclude people who feel insecure -- on the contrary, they are the best to have in this kind of work." },
+      { title: "The insecure", description: 'As someone who is insecure, shy, and introverted himself, Ivano found in "masked" play the freedom to express himself and then bring that freedom into real life.' },
+      { title: "The curious", description: '"I do not believe that theatre is therapy, but I do believe that physical work leads to changes we can truly feel, allowing us to discover something new about ourselves."' },
+    ]} />
+  </section>
+
+  <section class="section">
+    <SectionTitle
+      eyebrow="Workshop History"
+      title="International teaching across three continents."
+    />
+    <PastWorkshopList workshops={pastWorkshops} />
+  </section>
+
+  <section class="section section--tint">
+    <SectionTitle
+      eyebrow="What Students Say"
+      title="Words from those who have done the work."
+    />
+    <TestimonialGrid testimonials={testimonials.slice(0, 3)} />
+  </section>
+</BaseLayout>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="title desc">
+  <title id="title">Ivano Conte - Theatre Pedagogue</title>
+  <desc id="desc">Commedia dell'Arte, Neutral Mask, and physical theatre workshops.</desc>
+
+  <rect width="1200" height="630" fill="#1a1714"/>
+  <rect x="60" y="60" width="1080" height="510" fill="none" stroke="#b8922f" stroke-width="0.5" opacity="0.4"/>
+
+  <text x="100" y="180" font-family="Arial, sans-serif" font-size="16" fill="#b8922f" letter-spacing="6">THEATRE PEDAGOGUE</text>
+
+  <text x="100" y="300" font-family="Georgia, serif" font-size="84" fill="#f5efe6">Ivano Conte</text>
+
+  <line x1="100" y1="340" x2="220" y2="340" stroke="#7a2e2e" stroke-width="1.5"/>
+
+  <text x="100" y="400" font-family="Arial, sans-serif" font-size="22" fill="#f5efe6" opacity="0.65">Commedia dell'Arte · Neutral Mask · Physical Theatre</text>
+
+  <text x="100" y="470" font-family="Arial, sans-serif" font-size="16" fill="#f5efe6" opacity="0.4">International workshops rooted in the Lecoq pedagogy</text>
+
+  <text x="1100" y="530" font-family="Georgia, serif" font-size="120" fill="#f5efe6" opacity="0.04" text-anchor="end" font-style="italic">IC</text>
+</svg>

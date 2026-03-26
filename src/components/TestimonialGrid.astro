@@ -1,0 +1,27 @@
+---
+interface Testimonial {
+  name: string;
+  credit: string;
+  quote: string;
+}
+
+interface Props {
+  testimonials: Testimonial[];
+}
+
+const { testimonials } = Astro.props;
+---
+
+<div class="quote-grid">
+  {
+    testimonials.map((testimonial) => (
+      <blockquote class="quote-card reveal">
+        <p>"{testimonial.quote}"</p>
+        <footer>
+          <strong>{testimonial.name}</strong>
+          <span>{testimonial.credit}</span>
+        </footer>
+      </blockquote>
+    ))
+  }
+</div>

@@ -1,0 +1,144 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { site, workshops, type Workshop } from "../../data/site";
+
+export async function getStaticPaths() {
+  return workshops.map((workshop) => ({
+    params: { slug: workshop.slug },
+    props: { workshop },
+  }));
+}
+
+interface Props {
+  workshop: Workshop;
+}
+
+const { workshop } = Astro.props;
+
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: workshop.title,
+  description: workshop.summary,
+  startDate: workshop.startDate,
+  endDate: workshop.endDate,
+  eventAttendanceMode:
+    workshop.format === "In-person"
+      ? "https://schema.org/OfflineEventAttendanceMode"
+      : "https://schema.org/MixedEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  location: {
+    "@type": "Place",
+    name: workshop.venue,
+    address: workshop.location,
+  },
+  organizer: {
+    "@type": "Person",
+    name: site.name,
+    email: site.email,
+    url: site.siteUrl,
+  },
+  url: `${site.siteUrl}/workshops/${workshop.slug}/`,
+};
+
+const primaryCta = workshop.registrationUrl
+  ? {
+      href: workshop.registrationUrl,
+      label: "Register now",
+      external: true,
+    }
+  : {
+      href: workshop.fallbackUrl,
+      label: workshop.fallbackLabel,
+      external: false,
+    };
+---
+
+<BaseLayout
+  title={workshop.title}
+  description={workshop.summary}
+  structuredData={eventSchema}
+>
+  <section class="page-hero section">
+    <div class="page-hero__inner reveal">
+      <p class="eyebrow">{workshop.badge}</p>
+      <h1>{workshop.title}</h1>
+      <p>{workshop.lead}</p>
+    </div>
+    <aside class="page-hero__aside reveal">
+      <div class="detail-card detail-card--sticky">
+        <span class:list={["status-pill", `status-pill--${workshop.status}`]}>
+          {workshop.statusLabel}
+        </span>
+        <h2>{workshop.dateLabel}</h2>
+        <ul class="meta-list">
+          <li><strong>Time</strong><span>{workshop.timeLabel}</span></li>
+          <li><strong>Venue</strong><span>{workshop.venue}</span></li>
+          <li><strong>Location</strong><span>{workshop.location}</span></li>
+          <li><strong>Format</strong><span>{workshop.format}</span></li>
+          <li><strong>Price</strong><span>{workshop.priceLabel}</span></li>
+          <li><strong>Capacity</strong><span>{workshop.seats}</span></li>
+        </ul>
+        <a
+          class="button"
+          href={primaryCta.href}
+          target={primaryCta.external ? "_blank" : undefined}
+          rel={primaryCta.external ? "noreferrer" : undefined}
+        >
+          {primaryCta.label}
+        </a>
+        <p class="microcopy">
+          Contact us for early bird pricing, returning student discounts, and bundle options.
+        </p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="detail-layout">
+      <div class="detail-main">
+        <article class="info-card reveal">
+          <h2>Overview</h2>
+          <p>{workshop.summary}</p>
+        </article>
+
+        <article class="info-card reveal">
+          <h2>Who this is for</h2>
+          <ul class="check-list">
+            {workshop.audience.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+
+        <article class="info-card reveal">
+          <h2>What you leave with</h2>
+          <ul class="check-list">
+            {workshop.outcomes.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+      </div>
+
+      <div class="detail-side">
+        <article class="info-card reveal">
+          <h2>Session flow</h2>
+          <div class="schedule-grid">
+            {workshop.schedule.map((step) => (
+              <div class="schedule-step">
+                <h3>{step.label}</h3>
+                <p>{step.detail}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article class="info-card reveal">
+          <h2>Bring this workshop to your space</h2>
+          <p>
+            This workshop can be adapted for studios, conservatories, festivals,
+            and training programs. Ivano regularly teaches as a guest internationally.
+          </p>
+          <a class="button button--ghost" href="/contact/">Inquire about guest teaching</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

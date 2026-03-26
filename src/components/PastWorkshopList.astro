@@ -1,0 +1,24 @@
+---
+interface PastWorkshop {
+  title: string;
+  location: string;
+  dates: string;
+}
+
+interface Props {
+  workshops: PastWorkshop[];
+}
+
+const { workshops } = Astro.props;
+---
+
+<div class="past-workshops">
+  {
+    workshops.map((workshop) => (
+      <div class="past-workshop reveal">
+        <span class="past-workshop__title">{workshop.title}</span>
+        <span class="past-workshop__meta">{workshop.location} &middot; {workshop.dates}</span>
+      </div>
+    ))
+  }
+</div>
