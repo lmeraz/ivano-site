@@ -4,7 +4,7 @@ import PillarGrid from "../components/PillarGrid.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TestimonialGrid from "../components/TestimonialGrid.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { site, testimonials, workshopPillars, pastWorkshops, personSchema } from "../data/site";
+import { site, featuredTestimonials, idealStudentPillars, workshopPillars, pastWorkshops, personSchema } from "../data/site";
 ---
 
 <BaseLayout
@@ -141,11 +141,7 @@ import { site, testimonials, workshopPillars, pastWorkshops, personSchema } from
       title="Someone willing to step up and put themselves on the line."
       description="Not just professionals -- anyone drawn to physical expression, presence, and play."
     />
-    <PillarGrid pillars={[
-      { title: "The willing", description: "Someone who is not afraid to get their hands dirty. This does not exclude people who feel insecure -- on the contrary, they are the best to have in this kind of work." },
-      { title: "The insecure", description: 'As someone who is insecure, shy, and introverted himself, Ivano found in "masked" play the freedom to express himself and then bring that freedom into real life.' },
-      { title: "The curious", description: '"I do not believe that theatre is therapy, but I do believe that physical work leads to changes we can truly feel, allowing us to discover something new about ourselves."' },
-    ]} />
+    <PillarGrid pillars={idealStudentPillars} />
   </section>
 
   <section class="section">
@@ -161,6 +157,6 @@ import { site, testimonials, workshopPillars, pastWorkshops, personSchema } from
       eyebrow="What Students Say"
       title="Words from those who have done the work."
     />
-    <TestimonialGrid testimonials={testimonials.slice(0, 3)} />
+    <TestimonialGrid testimonials={featuredTestimonials} />
   </section>
 </BaseLayout>

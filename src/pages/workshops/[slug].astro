@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { site, workshops, type Workshop } from "../../data/site";
+import { eventSchema, workshops, type Workshop } from "../../data/site";
 
 export async function getStaticPaths() {
   return workshops.map((workshop) => ({
@@ -14,32 +14,6 @@ interface Props {
 }
 
 const { workshop } = Astro.props;
-
-const eventSchema = {
-  "@context": "https://schema.org",
-  "@type": "Event",
-  name: workshop.title,
-  description: workshop.summary,
-  startDate: workshop.startDate,
-  endDate: workshop.endDate,
-  eventAttendanceMode:
-    workshop.format === "In-person"
-      ? "https://schema.org/OfflineEventAttendanceMode"
-      : "https://schema.org/MixedEventAttendanceMode",
-  eventStatus: "https://schema.org/EventScheduled",
-  location: {
-    "@type": "Place",
-    name: workshop.venue,
-    address: workshop.location,
-  },
-  organizer: {
-    "@type": "Person",
-    name: site.name,
-    email: site.email,
-    url: site.siteUrl,
-  },
-  url: `${site.siteUrl}/workshops/${workshop.slug}/`,
-};
 
 const primaryCta = workshop.registrationUrl
   ? {
@@ -57,7 +31,7 @@ const primaryCta = workshop.registrationUrl
 <BaseLayout
   title={workshop.title}
   description={workshop.summary}
-  structuredData={eventSchema}
+  structuredData={eventSchema(workshop)}
 >
   <section class="page-hero section">
     <div class="page-hero__inner reveal">
