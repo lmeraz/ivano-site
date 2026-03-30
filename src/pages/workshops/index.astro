@@ -2,16 +2,21 @@
 import PastWorkshopList from "../../components/PastWorkshopList.astro";
 import PhilosophyGrid from "../../components/PhilosophyGrid.astro";
 import SectionTitle from "../../components/SectionTitle.astro";
+import TestimonialGrid from "../../components/TestimonialGrid.astro";
 import WorkshopCard from "../../components/WorkshopCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { reader } from "../../lib/reader";
 
-const [siteSettings, allWorkshops, allPastWorkshops] = await Promise.all([
+const [siteSettings, allWorkshops, allPastWorkshops, testimonialsData, faqsData] = await Promise.all([
   reader.singletons.siteSettings.read(),
   reader.collections.workshops.all(),
   reader.collections.pastWorkshops.all(),
+  reader.singletons.testimonials.read(),
+  reader.singletons.faqs.read(),
 ]);
 if (!siteSettings) throw new Error("Site settings not found");
+if (!testimonialsData) throw new Error("Testimonials not found");
+if (!faqsData) throw new Error("FAQs not found");
 const workshops = allWorkshops.map((w: { slug: string; entry: Record<string, any> }) => ({ ...w.entry, slug: w.slug }));
 const openWorkshops = workshops.filter((w: Record<string, any>) => w.status === "open");
 const waitlistWorkshops = workshops.filter((w: Record<string, any>) => w.status === "waitlist");
@@ -91,6 +96,32 @@ const workshopModules = [
       </div>
     </section>
   )}
+
+  <section class="section">
+    <SectionTitle
+      eyebrow="Testimonials"
+      title="What students say."
+    />
+    <TestimonialGrid testimonials={testimonialsData.items} expandable />
+  </section>
+
+  <section class="section section--narrow" id="faq">
+    <SectionTitle
+      eyebrow="FAQ"
+      title="Common questions."
+      align="center"
+    />
+    <div class="faq-list">
+      {
+        faqsData.items.map((item: { question: string; answer: string }) => (
+          <details class="faq-item reveal">
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </section>
 
   <section class="section section--tint">
     <SectionTitle

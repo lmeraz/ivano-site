@@ -6,7 +6,7 @@ interface PastWorkshop {
 }
 
 interface Props {
-  workshops: PastWorkshop[];
+  workshops: readonly PastWorkshop[];
 }
 
 const { workshops } = Astro.props;

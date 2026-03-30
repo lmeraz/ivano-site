@@ -6,18 +6,16 @@ import WorkshopCard from "../components/WorkshopCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { reader, personSchema } from "../lib/reader";
 
-const [siteSettings, home, testimonialsData, faqsData, allWorkshops] =
+const [siteSettings, home, testimonialsData, allWorkshops] =
   await Promise.all([
     reader.singletons.siteSettings.read(),
     reader.singletons.home.read(),
     reader.singletons.testimonials.read(),
-    reader.singletons.faqs.read(),
     reader.collections.workshops.all(),
   ]);
 if (!siteSettings) throw new Error("Site settings not found");
 if (!home) throw new Error("Home content not found");
 if (!testimonialsData) throw new Error("Testimonials not found");
-if (!faqsData) throw new Error("FAQs not found");
 const featuredWorkshops = allWorkshops
   .map((w: { slug: string; entry: Record<string, any> }) => ({ ...w.entry, slug: w.slug }))
   .filter((w: Record<string, any>) => w.featured);
@@ -100,21 +98,4 @@ const featuredWorkshops = allWorkshops
     </div>
   </section>
 
-  <section class="section section--narrow" id="faq">
-    <SectionTitle
-      eyebrow="FAQ"
-      title="Common questions."
-      align="center"
-    />
-    <div class="faq-list">
-      {
-        faqsData.items.map((item: { question: string; answer: string }) => (
-          <details class="faq-item reveal">
-            <summary>{item.question}</summary>
-            <p>{item.answer}</p>
-          </details>
-        ))
-      }
-    </div>
-  </section>
 </BaseLayout>
