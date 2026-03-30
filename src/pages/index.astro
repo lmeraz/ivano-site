@@ -4,29 +4,37 @@ import SectionTitle from "../components/SectionTitle.astro";
 import TestimonialGrid from "../components/TestimonialGrid.astro";
 import WorkshopCard from "../components/WorkshopCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import {
-  faqs,
-  featuredWorkshops,
-  personSchema,
-  process,
-  site,
-  stats,
-  testimonials,
-  workshopPillars,
-} from "../data/site";
+import { reader, personSchema } from "../lib/reader";
+
+const siteSettings = await reader.singletons.siteSettings.read();
+if (!siteSettings) throw new Error("Site settings not found");
+
+const home = await reader.singletons.home.read();
+if (!home) throw new Error("Home content not found");
+
+const testimonialsData = await reader.singletons.testimonials.read();
+if (!testimonialsData) throw new Error("Testimonials not found");
+
+const faqsData = await reader.singletons.faqs.read();
+if (!faqsData) throw new Error("FAQs not found");
+
+const allWorkshops = await reader.collections.workshops.all();
+const featuredWorkshops = allWorkshops
+  .map((w) => w.entry)
+  .filter((w) => w.featured);
 ---
 
 <BaseLayout
   title="Commedia dell'Arte, Neutral Mask & Physical Theatre Workshops"
-  description={site.description}
-  structuredData={personSchema()}
+  description={siteSettings.description}
+  structuredData={await personSchema()}
 >
   <section class="hero section">
     <div class="hero__copy reveal">
       <p class="eyebrow">Commedia dell'Arte &middot; Neutral Mask &middot; Physical Theatre</p>
       <h1>The mask is a piece of leather. <em>You</em> are the instrument.</h1>
       <p class="hero__lede">
-        {site.name} leads international workshops in Commedia dell'Arte,
+        {siteSettings.name} leads international workshops in Commedia dell'Arte,
         Neutral Mask, and physical theatre rooted in the Lecoq pedagogy.
         A space for play, experimentation, and the freedom to discover.
       </p>
@@ -36,7 +44,7 @@ import {
       </div>
       <div class="hero__stats">
         {
-          stats.map((stat) => (
+          home.stats.map((stat) => (
             <article class="stat-card">
               <span class="stat-card__value">{stat.value}</span>
               <span class="stat-card__label">{stat.label}</span>
@@ -74,7 +82,7 @@ import {
       title="Play freely. Work rigorously. Carry it forward."
       description="The teaching philosophy is rooted in play, experimentation, and the belief that mistakes are not to be demonized -- they are where discovery begins."
     />
-    <PillarGrid pillars={workshopPillars} />
+    <PillarGrid pillars={[...home.pillars]} />
   </section>
 
   <section class="section section--tint" id="featured-workshops">
@@ -99,7 +107,7 @@ import {
       </div>
       <ol class="process-list">
         {
-          process.map((step, index) => (
+          home.process.map((step, index) => (
             <li class="process-step reveal">
               <span class="process-step__number">0{index + 1}</span>
               <div>
@@ -118,7 +126,7 @@ import {
       eyebrow="Testimonials"
       title="What performers say after the work."
     />
-    <TestimonialGrid testimonials={testimonials.slice(0, 3)} />
+    <TestimonialGrid testimonials={testimonialsData.items.slice(0, 3)} />
   </section>
 
   <section class="section">
@@ -147,7 +155,7 @@ import {
     />
     <div class="faq-list">
       {
-        faqs.map((item) => (
+        faqsData.items.map((item) => (
           <details class="faq-item reveal">
             <summary>{item.question}</summary>
             <p>{item.answer}</p>
