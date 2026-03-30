@@ -5,15 +5,16 @@ import WorkshopCard from "../../components/WorkshopCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { reader } from "../../lib/reader";
 
-const siteSettings = await reader.singletons.siteSettings.read();
+const [siteSettings, allWorkshops, allPastWorkshops] = await Promise.all([
+  reader.singletons.siteSettings.read(),
+  reader.collections.workshops.all(),
+  reader.collections.pastWorkshops.all(),
+]);
 if (!siteSettings) throw new Error("Site settings not found");
-
-const allWorkshops = await reader.collections.workshops.all();
-const workshops = allWorkshops.map((w) => w.entry);
-const upcomingWorkshops = workshops.filter((w) => w.status === "open");
+const workshops = allWorkshops.map((w) => ({ ...w.entry, slug: w.slug }));
+const openWorkshops = workshops.filter((w) => w.status === "open");
+const waitlistWorkshops = workshops.filter((w) => w.status === "waitlist");
 const futureWorkshops = workshops.filter((w) => w.status === "soon");
-
-const allPastWorkshops = await reader.collections.pastWorkshops.all();
 const pastWorkshops = allPastWorkshops.map((w) => w.entry);
 ---
 
@@ -24,11 +25,12 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
   <section class="page-hero section">
     <div class="page-hero__inner reveal">
       <p class="eyebrow">Workshop Calendar</p>
-      <h1>Commedia dell'Arte, Neutral Mask, and physical theatre.</h1>
+      <h1>Physical Expression, Masks & Creative Training</h1>
       <p>
-        International intensives rooted in the Lecoq pedagogy.
-        Each workshop is designed for play, experimentation, and rigorous
-        physical training in an intimate, supportive setting.
+        Each workshop explores a different dimension of physical theatre,
+        movement awareness, and creative invention. Modules can be taken
+        individually or combined into intensive programs for schools,
+        companies, or training institutions.
       </p>
     </div>
     <aside class="page-hero__aside reveal">
@@ -44,7 +46,7 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
     </aside>
   </section>
 
-  {upcomingWorkshops.length > 0 && (
+  {openWorkshops.length > 0 && (
     <section class="section">
       <SectionTitle
         eyebrow="Registration Open"
@@ -52,7 +54,20 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
         description="Secure your place in the next intensive."
       />
       <div class="card-grid">
-        {upcomingWorkshops.map((workshop) => <WorkshopCard workshop={workshop} />)}
+        {openWorkshops.map((workshop) => <WorkshopCard workshop={workshop} />)}
+      </div>
+    </section>
+  )}
+
+  {waitlistWorkshops.length > 0 && (
+    <section class="section section--tint">
+      <SectionTitle
+        eyebrow="Waitlist"
+        title="Workshops at capacity — join the waitlist."
+        description="Places open up regularly. Add your name and we will reach out as soon as a spot is available."
+      />
+      <div class="card-grid">
+        {waitlistWorkshops.map((workshop) => <WorkshopCard workshop={workshop} />)}
       </div>
     </section>
   )}

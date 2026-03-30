@@ -1,4 +1,5 @@
 ---
+import SectionTitle from "../../components/SectionTitle.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { reader } from "../../lib/reader";
 
@@ -134,11 +135,32 @@ const primaryCta = workshop.registrationUrl
           <h2>Bring this workshop to your space</h2>
           <p>
             This workshop can be adapted for studios, conservatories, festivals,
-            and training programs. Ivano regularly teaches as a guest internationally.
+            and training programs. I regularly teach as a guest internationally.
           </p>
           <a class="button button--ghost" href="/contact/">Inquire about guest teaching</a>
         </article>
       </div>
     </div>
   </section>
+
+  {workshop.focusAreas && workshop.focusAreas.length > 0 && (
+    <section class="section section--tint">
+      <SectionTitle
+        eyebrow="What We Explore"
+        title="Focus areas for this workshop"
+      />
+      <div class="philosophy-grid">
+        {workshop.focusAreas.map((area) => (
+          <article class="philosophy-card reveal">
+            <p>{area}</p>
+          </article>
+        ))}
+      </div>
+      {workshop.moduleDescription && (
+        <div class="section__footer reveal">
+          <p>{workshop.moduleDescription}</p>
+        </div>
+      )}
+    </section>
+  )}
 </BaseLayout>
