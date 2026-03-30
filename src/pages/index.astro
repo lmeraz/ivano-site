@@ -6,41 +6,43 @@ import WorkshopCard from "../components/WorkshopCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { reader, personSchema } from "../lib/reader";
 
-const siteSettings = await reader.singletons.siteSettings.read();
+const [siteSettings, home, testimonialsData, faqsData, allWorkshops] =
+  await Promise.all([
+    reader.singletons.siteSettings.read(),
+    reader.singletons.home.read(),
+    reader.singletons.testimonials.read(),
+    reader.singletons.faqs.read(),
+    reader.collections.workshops.all(),
+  ]);
 if (!siteSettings) throw new Error("Site settings not found");
-
-const home = await reader.singletons.home.read();
 if (!home) throw new Error("Home content not found");
-
-const testimonialsData = await reader.singletons.testimonials.read();
 if (!testimonialsData) throw new Error("Testimonials not found");
-
-const faqsData = await reader.singletons.faqs.read();
 if (!faqsData) throw new Error("FAQs not found");
-
-const allWorkshops = await reader.collections.workshops.all();
 const featuredWorkshops = allWorkshops
-  .map((w) => w.entry)
+  .map((w) => ({ ...w.entry, slug: w.slug }))
   .filter((w) => w.featured);
 ---
 
 <BaseLayout
   title="Commedia dell'Arte, Neutral Mask & Physical Theatre Workshops"
   description={siteSettings.description}
-  structuredData={await personSchema()}
+  structuredData={personSchema(siteSettings)}
 >
   <section class="hero section">
     <div class="hero__copy reveal">
-      <p class="eyebrow">Commedia dell'Arte &middot; Neutral Mask &middot; Physical Theatre</p>
-      <h1>The mask is a piece of leather. <em>You</em> are the instrument.</h1>
+      <p class="eyebrow">Movement Teacher &middot; Physical Theatre &middot; Lecoq Pedagogy</p>
+      <h1>Movement. Presence. Imagination.</h1>
       <p class="hero__lede">
-        {siteSettings.name} leads international workshops in Commedia dell'Arte,
-        Neutral Mask, and physical theatre rooted in the Lecoq pedagogy.
-        A space for play, experimentation, and the freedom to discover.
+        I am a movement teacher and physical theatre practitioner with an
+        international background rooted in Jacques Lecoq's pedagogy. My work
+        begins from a clear conviction: <strong>the body is the foundation of
+        storytelling.</strong> Before words or character appear, performers respond
+        to space, rhythm, weight, and the environment around them. That physical
+        response is where theatre truly starts.
       </p>
       <div class="button-row">
         <a class="button" href="/workshops/">View upcoming workshops</a>
-        <a class="button button--ghost" href="/about/">Teaching philosophy</a>
+        <a class="button button--ghost" href="/about/">About my approach</a>
       </div>
       <div class="hero__stats">
         {
@@ -57,8 +59,8 @@ const featuredWorkshops = allWorkshops
     <aside class="hero__panel reveal">
       <div class="portrait-card">
         <img
-          src="/commedia-mask.jpg"
-          alt="Commedia dell'Arte character in mask -- workshop performance"
+          src="/hero.jpg"
+          alt="Ivano Conte -- movement teacher and physical theatre practitioner"
           class="portrait-card__img"
           width="1080"
           height="1350"
@@ -79,10 +81,10 @@ const featuredWorkshops = allWorkshops
   <section class="section">
     <SectionTitle
       eyebrow="Approach"
-      title="Play freely. Work rigorously. Carry it forward."
-      description="The teaching philosophy is rooted in play, experimentation, and the belief that mistakes are not to be demonized -- they are where discovery begins."
+      title="Movement as inquiry, creation as practice."
+      description="My teaching grows from the intersection of movement training, mask work, and somatic exploration. I see the actor not as a container to fill, but as an artist with a physical intelligence already present in their body."
     />
-    <PillarGrid pillars={[...home.pillars]} />
+    <PillarGrid pillars={home.pillars} />
   </section>
 
   <section class="section section--tint" id="featured-workshops">
@@ -101,7 +103,7 @@ const featuredWorkshops = allWorkshops
       <div>
         <SectionTitle
           eyebrow="In The Room"
-          title="Every session begins in the body."
+          title="Every session I lead begins in the body."
           description="The structure moves from physical preparation through ensemble play to integration -- rigorous training that stays playful."
         />
       </div>
@@ -133,7 +135,7 @@ const featuredWorkshops = allWorkshops
     <div class="banner reveal">
       <div class="banner__copy">
         <p class="eyebrow">Stay connected</p>
-        <h2>New dates, early access, and workshop updates from Rome and beyond.</h2>
+        <h2>I share new dates, early access, and workshop updates from Rome and beyond.</h2>
         <p>
           Reach out to be first to know when new workshops open for registration
           in Los Angeles, Europe, and beyond.
