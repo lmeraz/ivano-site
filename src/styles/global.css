@@ -6,6 +6,7 @@
   --muted: #6b6560;
   --line: rgba(26, 23, 20, 0.1);
   --green: #2e6b4a;
+  --green-dark: #1e4a33;
   --sage: #6b8f55;
   --sage-soft: rgba(107, 143, 85, 0.15);
   --content-width: min(1140px, calc(100vw - 2rem));
@@ -87,7 +88,7 @@ ul, ol {
   z-index: 10;
   backdrop-filter: blur(16px);
   background: rgba(245, 239, 230, 0.85);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(46, 107, 74, 0.12);
 }
 
 .site-header__inner,
@@ -117,7 +118,7 @@ ul, ol {
   place-items: center;
   width: 2.6rem;
   height: 2.6rem;
-  background: var(--ink);
+  background: var(--green);
   color: var(--bg);
   font-family: var(--display-font);
   font-size: 1rem;
@@ -165,7 +166,7 @@ ul, ol {
 .nav__link:hover,
 .nav__link:focus-visible,
 .nav__link--active {
-  color: var(--ink);
+  color: var(--green);
 }
 
 .nav__link--active {
@@ -191,8 +192,8 @@ ul, ol {
   z-index: -1;
   background: linear-gradient(
     180deg,
-    rgba(215, 228, 210, 0.3),
-    rgba(215, 228, 210, 0.08)
+    rgba(200, 220, 195, 0.35),
+    rgba(200, 220, 195, 0.1)
   );
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -278,7 +279,7 @@ ul, ol {
   min-height: 3rem;
   padding: 0.75rem 1.5rem;
   border: 1px solid transparent;
-  background: var(--ink);
+  background: var(--green);
   color: var(--bg);
   font-family: var(--body-font);
   font-size: 0.88rem;
@@ -290,7 +291,7 @@ ul, ol {
 
 .button:hover,
 .button:focus-visible {
-  background: #2d2824;
+  background: var(--green-dark);
   transform: translateY(-1px);
 }
 
@@ -301,13 +302,13 @@ ul, ol {
 }
 
 .button--ghost {
-  border-color: var(--line);
+  border-color: rgba(46, 107, 74, 0.2);
 }
 
 .button--ghost:hover,
 .button--ghost:focus-visible {
-  background: rgba(26, 23, 20, 0.04);
-  border-color: rgba(26, 23, 20, 0.2);
+  background: rgba(46, 107, 74, 0.06);
+  border-color: rgba(46, 107, 74, 0.35);
 }
 
 .button--soft {
@@ -592,7 +593,7 @@ ul, ol {
   justify-content: space-between;
   gap: 1.5rem;
   padding: 2rem;
-  background: var(--ink);
+  background: var(--green-dark);
   color: var(--bg);
 }
 
@@ -601,7 +602,7 @@ ul, ol {
 }
 
 .banner .eyebrow {
-  color: var(--sage);
+  color: rgba(245, 239, 230, 0.6);
 }
 
 .banner h2 {
@@ -620,7 +621,7 @@ ul, ol {
 
 .banner .button {
   background: var(--bg);
-  color: var(--ink);
+  color: var(--green-dark);
 }
 
 .banner .button:hover {
@@ -665,7 +666,7 @@ ul, ol {
   content: "+";
   font-family: var(--body-font);
   font-size: 1.2rem;
-  color: var(--muted);
+  color: var(--green);
   flex-shrink: 0;
   transition: transform 200ms ease;
 }
@@ -814,7 +815,7 @@ ul, ol {
 }
 
 .footer a:hover {
-  color: var(--ink);
+  color: var(--green);
 }
 
 .footer__legal {
