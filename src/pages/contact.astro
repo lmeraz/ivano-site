@@ -8,6 +8,13 @@ if (!siteSettings) throw new Error("Site settings not found");
 
 const contact = await reader.singletons.contact.read();
 if (!contact) throw new Error("Contact content not found");
+const channels = contact.channels.map((ch) => ({
+  ...ch,
+  href: ch.subject
+    ? `mailto:${siteSettings.email}?subject=${encodeURIComponent(ch.subject)}`
+    : `mailto:${siteSettings.email}`,
+  label: ch.label || siteSettings.email,
+}));
 ---
 
 <BaseLayout
@@ -41,7 +48,7 @@ if (!contact) throw new Error("Contact content not found");
     />
     <div class="contact-grid">
       {
-        contact.channels.map((channel) => (
+        channels.map((channel) => (
           <article class="contact-card reveal">
             <h2>{channel.title}</h2>
             <p>{channel.description}</p>

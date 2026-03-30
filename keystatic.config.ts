@@ -13,10 +13,10 @@ export default config({
         name: fields.text({ label: "Name", validation: { isRequired: true } }),
         role: fields.text({ label: "Role" }),
         baseCity: fields.text({ label: "Base City" }),
-        siteUrl: fields.url({ label: "Site URL" }),
-        email: fields.text({ label: "Email" }),
+        siteUrl: fields.url({ label: "Site URL", validation: { isRequired: true } }),
+        email: fields.text({ label: "Email", validation: { isRequired: true } }),
         instagram: fields.url({ label: "Instagram URL" }),
-        description: fields.text({ label: "Site Description", multiline: true }),
+        description: fields.text({ label: "Site Description", multiline: true, validation: { isRequired: true } }),
         navigation: fields.array(
           fields.object({
             label: fields.text({ label: "Label", validation: { isRequired: true } }),
@@ -104,8 +104,8 @@ export default config({
           fields.object({
             title: fields.text({ label: "Title", validation: { isRequired: true } }),
             description: fields.text({ label: "Description", multiline: true, validation: { isRequired: true } }),
-            href: fields.text({ label: "Link URL", validation: { isRequired: true } }),
-            label: fields.text({ label: "Button Label", validation: { isRequired: true } }),
+            subject: fields.text({ label: "Email Subject (leave empty for general)" }),
+            label: fields.text({ label: "Button Label (leave empty to show email address)" }),
           }),
           {
             label: "Contact Channels",
@@ -207,10 +207,11 @@ export default config({
     }),
     pastWorkshops: collection({
       label: "Past Workshops",
-      slugField: "title",
+      slugField: "slug",
       path: "src/content/past-workshops/*",
       format: "json",
       schema: {
+        slug: fields.text({ label: "Slug", validation: { isRequired: true } }),
         title: fields.text({ label: "Title", validation: { isRequired: true } }),
         location: fields.text({ label: "Location", validation: { isRequired: true } }),
         dates: fields.text({ label: "Dates", validation: { isRequired: true } }),

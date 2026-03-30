@@ -5,26 +5,26 @@
     {
       "title": "Workshop registration",
       "description": "Interested in an upcoming workshop? Reach out for pricing, availability, and registration details.",
-      "href": "mailto:ivano.conte@gmail.com?subject=Workshop%20Registration%20Inquiry",
+      "subject": "Workshop Registration Inquiry",
       "label": "Email about workshops"
     },
     {
       "title": "Guest teaching",
       "description": "Invite Ivano to lead a guest workshop, intensive, or residency at your studio, school, or festival.",
-      "href": "mailto:ivano.conte@gmail.com?subject=Guest%20Teaching%20Inquiry",
+      "subject": "Guest Teaching Inquiry",
       "label": "Inquire about guest teaching"
     },
     {
       "title": "Scholarships",
       "description": "Scholarships are available for practitioners of color, trans theatre-makers, and those from underrepresented backgrounds.",
-      "href": "mailto:ivano.conte@gmail.com?subject=Scholarship%20Inquiry",
+      "subject": "Scholarship Inquiry",
       "label": "Ask about scholarships"
     },
     {
       "title": "General inquiries",
       "description": "Questions about the work, the pedagogy, or anything else? Andrea and Ivano are happy to help.",
-      "href": "mailto:ivano.conte@gmail.com",
-      "label": "ivano.conte@gmail.com"
+      "subject": "",
+      "label": ""
     }
   ]
 }
