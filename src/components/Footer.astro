@@ -1,37 +1,40 @@
 ---
-import { site } from "../data/site";
+import { reader } from "../lib/reader";
+
+const siteSettings = await reader.singletons.siteSettings.read();
+if (!siteSettings) throw new Error("Site settings not found");
 ---
 
 <footer class="footer">
   <div class="footer__grid">
     <div>
-      <p class="eyebrow">{site.name}</p>
-      <h2>{site.role}</h2>
+      <p class="eyebrow">{siteSettings.name}</p>
+      <h2>{siteSettings.role}</h2>
       <p>
         Commedia dell'Arte, Neutral Mask, and physical theatre workshops rooted
-        in the Lecoq pedagogy. Based in {site.baseCity}, teaching internationally.
+        in the Lecoq pedagogy. Based in {siteSettings.baseCity}, teaching internationally.
       </p>
     </div>
 
     <div>
       <h3>Explore</h3>
       <ul>
-        {site.navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        {siteSettings.navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
       </ul>
     </div>
 
     <div>
       <h3>Connect</h3>
       <ul>
-        <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
-        <li>Based in {site.baseCity}, Italy</li>
+        <li><a href={`mailto:${siteSettings.email}`}>{siteSettings.email}</a></li>
+        <li>Based in {siteSettings.baseCity}, Italy</li>
         <li>International workshops and intensives</li>
       </ul>
     </div>
   </div>
 
   <div class="footer__legal">
-    <span>{site.name}</span>
+    <span>{siteSettings.name}</span>
     <span>Commedia dell'Arte, Neutral Mask, and physical theatre.</span>
   </div>
 </footer>

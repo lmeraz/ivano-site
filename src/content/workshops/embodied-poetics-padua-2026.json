@@ -1,0 +1,48 @@
+{
+  "slug": "embodied-poetics-padua-2026",
+  "title": "First Voyage of Embodied Poetics",
+  "badge": "Padua Residency",
+  "featured": false,
+  "strapline": "A deep residency in Padua exploring the full arc of Lecoq's pedagogy through Embodied Poetics.",
+  "summary": "The First Voyage is an extended residency that traces the foundational arc of Jacques Lecoq's methodology -- from movement analysis through mask work, Commedia dell'Arte, and the creative process. An intensive journey for serious practitioners.",
+  "lead": "An extended immersion in the Lecoq tradition, designed for those ready to commit to a deeper, sustained exploration of physical theatre and its creative possibilities.",
+  "dateLabel": "June -- July 2026",
+  "timeLabel": "Multi-week residency",
+  "startDate": "2026-06-15T10:00:00+02:00",
+  "endDate": "2026-07-15T18:00:00+02:00",
+  "location": "Padua, Italy",
+  "venue": "Padua",
+  "priceLabel": "Contact for pricing",
+  "format": "In-person",
+  "level": "Intermediate to advanced",
+  "seats": "Limited",
+  "status": "soon",
+  "statusLabel": "Coming soon",
+  "registrationUrl": null,
+  "fallbackUrl": "mailto:ivano.conte@gmail.com?subject=Embodied%20Poetics%20Padua%20-%20Interest",
+  "fallbackLabel": "Express interest",
+  "audience": [
+    "Committed practitioners seeking an extended physical theatre residency",
+    "Performers and educators wanting a comprehensive Lecoq methodology experience",
+    "Artists ready for sustained, intensive training over multiple weeks"
+  ],
+  "outcomes": [
+    "A comprehensive understanding of Lecoq's pedagogical arc",
+    "Advanced skills in movement analysis, mask work, and ensemble creation",
+    "A personal creative practice grounded in physical theatre principles"
+  ],
+  "schedule": [
+    {
+      "label": "Movement foundations",
+      "detail": "Daily practice in movement analysis, dynamics, and the physical laws that govern theatrical expression."
+    },
+    {
+      "label": "Mask progression",
+      "detail": "A journey through the mask families -- Neutral, Larval, Expressive, and Commedia dell'Arte."
+    },
+    {
+      "label": "Creative laboratory",
+      "detail": "Ensemble creation work that synthesizes the residency's explorations into original theatrical material."
+    }
+  ]
+}

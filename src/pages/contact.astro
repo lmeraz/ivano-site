@@ -1,53 +1,31 @@
 ---
 import SectionTitle from "../components/SectionTitle.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { site } from "../data/site";
+import { reader } from "../lib/reader";
 
-const channels = [
-  {
-    title: "Workshop registration",
-    description:
-      "Interested in an upcoming workshop? Reach out for pricing, availability, and registration details.",
-    href: `mailto:${site.email}?subject=Workshop%20Registration%20Inquiry`,
-    label: "Email about workshops",
-  },
-  {
-    title: "Guest teaching",
-    description:
-      "Invite Ivano to lead a guest workshop, intensive, or residency at your studio, school, or festival.",
-    href: `mailto:${site.email}?subject=Guest%20Teaching%20Inquiry`,
-    label: "Inquire about guest teaching",
-  },
-  {
-    title: "Scholarships",
-    description:
-      "Scholarships are available for practitioners of color, trans theatre-makers, and those from underrepresented backgrounds.",
-    href: `mailto:${site.email}?subject=Scholarship%20Inquiry`,
-    label: "Ask about scholarships",
-  },
-  {
-    title: "General inquiries",
-    description:
-      "Questions about the work, the pedagogy, or anything else? Andrea and Ivano are happy to help.",
-    href: `mailto:${site.email}`,
-    label: site.email,
-  },
-];
+const siteSettings = await reader.singletons.siteSettings.read();
+if (!siteSettings) throw new Error("Site settings not found");
+
+const contact = await reader.singletons.contact.read();
+if (!contact) throw new Error("Contact content not found");
+const channels = contact.channels.map((ch) => ({
+  ...ch,
+  href: ch.subject
+    ? `mailto:${siteSettings.email}?subject=${encodeURIComponent(ch.subject)}`
+    : `mailto:${siteSettings.email}`,
+  label: ch.label || siteSettings.email,
+}));
 ---
 
 <BaseLayout
   title="Contact"
-  description={`Contact ${site.name} for workshop registration, guest teaching, scholarships, and general inquiries.`}
+  description={`Contact ${siteSettings.name} for workshop registration, guest teaching, scholarships, and general inquiries.`}
 >
   <section class="page-hero section">
     <div class="page-hero__inner reveal">
       <p class="eyebrow">Contact</p>
-      <h1>Join the next workshop, or bring the work to your studio.</h1>
-      <p>
-        Whether you want to register for an upcoming intensive, invite Ivano
-        to teach at your school or festival, or simply ask a question --
-        reach out. Andrea and Ivano are here to help.
-      </p>
+      <h1>{contact.heroHeadline}</h1>
+      <p>{contact.heroDescription}</p>
     </div>
     <aside class="page-hero__aside reveal">
       <div class="detail-card">

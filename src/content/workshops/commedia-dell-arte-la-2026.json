@@ -1,0 +1,48 @@
+{
+  "slug": "commedia-dell-arte-la-2026",
+  "title": "Commedia dell'Arte",
+  "badge": "Los Angeles Intensive",
+  "featured": true,
+  "strapline": "Five days of Commedia dell'Arte and the foundations of physical theatre in Los Angeles.",
+  "summary": "An intensive workshop exploring the masks, characters, and physical language of Commedia dell'Arte. Rooted in the Lecoq pedagogy, this five-day immersion covers character analysis, improvisation, rhythm, and the foundational principles of masked performance.",
+  "lead": "Whether you are encountering Commedia for the first time or returning to deepen your practice, this intensive offers a rigorous and playful exploration of one of theatre's oldest living traditions.",
+  "dateLabel": "April 27 -- May 1, 2026",
+  "timeLabel": "Full days",
+  "startDate": "2026-04-27T10:00:00-07:00",
+  "endDate": "2026-05-01T18:00:00-07:00",
+  "location": "Los Angeles, USA",
+  "venue": "Industry Loft",
+  "priceLabel": "Contact for pricing",
+  "format": "In-person",
+  "level": "Open level",
+  "seats": "Limited",
+  "status": "open",
+  "statusLabel": "Registration open",
+  "registrationUrl": null,
+  "fallbackUrl": "mailto:ivano.conte@gmail.com?subject=Commedia%20dell'Arte%20LA%20-%20Registration",
+  "fallbackLabel": "Register by email",
+  "audience": [
+    "Actors and performers seeking physical theatre training rooted in a living tradition",
+    "Returning students who want to deepen their Commedia dell'Arte practice",
+    "Theatre-makers curious about masked performance and the Lecoq approach"
+  ],
+  "outcomes": [
+    "Understanding of key Commedia dell'Arte characters and their physical signatures",
+    "Practical skills in masked improvisation, rhythm, and ensemble play",
+    "A deeper relationship with the body as the primary instrument of performance"
+  ],
+  "schedule": [
+    {
+      "label": "Physical preparation",
+      "detail": "Each day opens with body work -- breath, rhythm, and spatial awareness to prepare the instrument."
+    },
+    {
+      "label": "Character and mask work",
+      "detail": "Progressive exploration of Commedia characters through the mask, from first encounters to improvised scenes."
+    },
+    {
+      "label": "Ensemble play and integration",
+      "detail": "Group improvisations that weave the day's discoveries into shared theatrical play."
+    }
+  ]
+}

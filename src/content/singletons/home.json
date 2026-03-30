@@ -1,0 +1,35 @@
+{
+  "stats": [
+    { "value": "8+", "label": "International workshops taught" },
+    { "value": "5", "label": "Countries across three continents" },
+    { "value": "Lecoq", "label": "Pedagogy rooted in the tradition" }
+  ],
+  "pillars": [
+    {
+      "title": "Play and experimentation",
+      "description": "A space open to mistakes, where performers feel free to try, to fail, and to discover. Play within the group is the foundation of every session."
+    },
+    {
+      "title": "Warmth and presence",
+      "description": "Teaching that is close, smiling, and firm when necessary. No walls between teacher and student -- just shared commitment to the work."
+    },
+    {
+      "title": "Physical discipline meets imagination",
+      "description": "Rigorous physical training blended with creative exploration, guiding performers toward authenticity, expressivity, and a living theatrical presence."
+    }
+  ],
+  "process": [
+    {
+      "title": "Enter through the body",
+      "description": "Every session begins with physical preparation -- breath, rhythm, and awareness. The body becomes the instrument before the mask or the character arrives."
+    },
+    {
+      "title": "Play within the ensemble",
+      "description": "Work happens in the group. Performers discover characters, impulses, and dynamics through collective play, improvisation, and the generous exchange of energy."
+    },
+    {
+      "title": "Carry it forward",
+      "description": "Each workshop closes with reflection and integration. What was discovered in the room becomes a tool for the stage, the rehearsal, and life itself."
+    }
+  ]
+}

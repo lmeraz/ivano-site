@@ -1,0 +1,48 @@
+{
+  "slug": "mask-and-play-corsica-2026",
+  "title": "Mask and Play",
+  "badge": "Corsica Intensive",
+  "featured": false,
+  "strapline": "An immersive exploration of mask work and theatrical play on the island of Corsica.",
+  "summary": "Mask and Play brings together various mask traditions -- from Neutral to Expressive -- in an intensive format surrounded by the landscape of Corsica. The workshop explores how the mask liberates the performer's body and imagination.",
+  "lead": "A unique opportunity to work with masks in an inspiring Mediterranean setting, combining rigorous physical training with the freedom of play.",
+  "dateLabel": "May 2026",
+  "timeLabel": "Full days",
+  "startDate": "2026-05-15T10:00:00+02:00",
+  "endDate": "2026-05-20T18:00:00+02:00",
+  "location": "Ajaccio, Corsica",
+  "venue": "Ajaccio",
+  "priceLabel": "Contact for pricing",
+  "format": "In-person",
+  "level": "Open level",
+  "seats": "Limited",
+  "status": "soon",
+  "statusLabel": "Coming soon",
+  "registrationUrl": null,
+  "fallbackUrl": "mailto:ivano.conte@gmail.com?subject=Mask%20and%20Play%20Corsica%20-%20Interest",
+  "fallbackLabel": "Express interest",
+  "audience": [
+    "Performers wanting an immersive mask experience in a unique setting",
+    "Theatre-makers exploring the relationship between mask, body, and environment",
+    "International practitioners seeking intensive training outside the studio"
+  ],
+  "outcomes": [
+    "Experience across multiple mask traditions and their physical demands",
+    "Deeper understanding of how environment and space shape theatrical play",
+    "Skills in mask-based improvisation and ensemble creation"
+  ],
+  "schedule": [
+    {
+      "label": "Morning body work",
+      "detail": "Physical preparation attuned to the natural environment -- breath, rhythm, and spatial awareness."
+    },
+    {
+      "label": "Mask explorations",
+      "detail": "Working through different mask families with exercises designed for discovery and play."
+    },
+    {
+      "label": "Evening ensemble",
+      "detail": "Collective creation sessions where the day's explorations become shared theatrical moments."
+    }
+  ]
+}

@@ -1,19 +1,19 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { site, workshops, type Workshop } from "../../data/site";
+import { reader } from "../../lib/reader";
 
 export async function getStaticPaths() {
-  return workshops.map((workshop) => ({
+  const allWorkshops = await reader.collections.workshops.all();
+  return allWorkshops.map((workshop) => ({
     params: { slug: workshop.slug },
-    props: { workshop },
+    props: { workshop: workshop.entry },
   }));
 }
 
-interface Props {
-  workshop: Workshop;
-}
-
 const { workshop } = Astro.props;
+
+const siteSettings = await reader.singletons.siteSettings.read();
+if (!siteSettings) throw new Error("Site settings not found");
 
 const eventSchema = {
   "@context": "https://schema.org",
@@ -34,11 +34,11 @@ const eventSchema = {
   },
   organizer: {
     "@type": "Person",
-    name: site.name,
-    email: site.email,
-    url: site.siteUrl,
+    name: siteSettings.name,
+    email: siteSettings.email,
+    url: siteSettings.siteUrl,
   },
-  url: `${site.siteUrl}/workshops/${workshop.slug}/`,
+  url: `${siteSettings.siteUrl}/workshops/${workshop.slug}/`,
 };
 
 const primaryCta = workshop.registrationUrl

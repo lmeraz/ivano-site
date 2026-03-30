@@ -1,0 +1,48 @@
+{
+  "slug": "neutral-mask-la-2026",
+  "title": "Neutral Mask",
+  "badge": "Los Angeles Weekend",
+  "featured": true,
+  "strapline": "Three days focused on the essential principles of Jacques Lecoq's pedagogy and the foundational work of presence.",
+  "summary": "The Neutral Mask is the starting point of Lecoq's pedagogy -- a tool for discovering economy of movement, clarity of intention, and the deepest presence an actor can bring to the stage. This three-day workshop explores the mask as a mirror of essential human movement.",
+  "lead": "If you want to go deeper into the foundational work of Jacques Lecoq's pedagogy, Neutral Mask work is exactly what you are looking for. A weekend of clarity, physical awareness, and presence.",
+  "dateLabel": "May 8 -- 10, 2026",
+  "timeLabel": "Full days",
+  "startDate": "2026-05-08T10:00:00-07:00",
+  "endDate": "2026-05-10T18:00:00-07:00",
+  "location": "Los Angeles, USA",
+  "venue": "Thymele Arts",
+  "priceLabel": "Contact for pricing",
+  "format": "In-person",
+  "level": "Open level",
+  "seats": "Limited",
+  "status": "open",
+  "statusLabel": "Registration open",
+  "registrationUrl": null,
+  "fallbackUrl": "mailto:ivano.conte@gmail.com?subject=Neutral%20Mask%20LA%20-%20Registration",
+  "fallbackLabel": "Register by email",
+  "audience": [
+    "Performers seeking the foundational body work of the Lecoq tradition",
+    "Actors who completed the Commedia dell'Arte workshop and want to go deeper",
+    "Anyone drawn to presence, physical clarity, and essential movement"
+  ],
+  "outcomes": [
+    "Understanding of the Neutral Mask as a pedagogical tool for presence and economy",
+    "Greater physical awareness, clarity of gesture, and spatial sensitivity",
+    "A foundation for all subsequent mask work and physical theatre practice"
+  ],
+  "schedule": [
+    {
+      "label": "Body and space",
+      "detail": "Opening work on breath, weight, and the relationship between the body and the surrounding space."
+    },
+    {
+      "label": "The mask encounters",
+      "detail": "Progressive exercises with the Neutral Mask -- movement journeys, elemental work, and essential human gestures."
+    },
+    {
+      "label": "Integration",
+      "detail": "Bringing the mask's lessons back into the unmasked body -- presence without artifice."
+    }
+  ]
+}

@@ -3,15 +3,23 @@ import PastWorkshopList from "../../components/PastWorkshopList.astro";
 import SectionTitle from "../../components/SectionTitle.astro";
 import WorkshopCard from "../../components/WorkshopCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { site, workshops, pastWorkshops } from "../../data/site";
+import { reader } from "../../lib/reader";
 
+const siteSettings = await reader.singletons.siteSettings.read();
+if (!siteSettings) throw new Error("Site settings not found");
+
+const allWorkshops = await reader.collections.workshops.all();
+const workshops = allWorkshops.map((w) => w.entry);
 const upcomingWorkshops = workshops.filter((w) => w.status === "open");
 const futureWorkshops = workshops.filter((w) => w.status === "soon");
+
+const allPastWorkshops = await reader.collections.pastWorkshops.all();
+const pastWorkshops = allPastWorkshops.map((w) => w.entry);
 ---
 
 <BaseLayout
   title="Workshops"
-  description={`Upcoming Commedia dell'Arte, Neutral Mask, and physical theatre workshops led by ${site.name}.`}
+  description={`Upcoming Commedia dell'Arte, Neutral Mask, and physical theatre workshops led by ${siteSettings.name}.`}
 >
   <section class="page-hero section">
     <div class="page-hero__inner reveal">

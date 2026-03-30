@@ -1,0 +1,15 @@
+{
+  "name": "Ivano Conte",
+  "role": "Theatre pedagogue, movement teacher, and Commedia dell'Arte specialist",
+  "baseCity": "Rome",
+  "siteUrl": "https://www.ivanoworkshops.com",
+  "email": "ivano.conte@gmail.com",
+  "instagram": "https://www.instagram.com/ivano.conte",
+  "description": "Ivano Conte leads Commedia dell'Arte, Neutral Mask, and physical theatre workshops rooted in the Lecoq pedagogy. International intensives for performers seeking authenticity, expressivity, and a living theatrical presence.",
+  "navigation": [
+    { "label": "Home", "href": "/" },
+    { "label": "Workshops", "href": "/workshops/" },
+    { "label": "About", "href": "/about/" },
+    { "label": "Contact", "href": "/contact/" }
+  ]
+}
