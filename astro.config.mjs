@@ -7,6 +7,7 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://www.ivanoworkshops.com",
+  output: "static",
   adapter: netlify(),
   integrations: [react(), keystatic(), sitemap()],
 });

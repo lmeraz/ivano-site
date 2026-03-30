@@ -44,16 +44,6 @@ const featuredWorkshops = allWorkshops
         <a class="button" href="/workshops/">View upcoming workshops</a>
         <a class="button button--ghost" href="/about/">About my approach</a>
       </div>
-      <div class="hero__stats">
-        {
-          home.stats.map((stat) => (
-            <article class="stat-card">
-              <span class="stat-card__value">{stat.value}</span>
-              <span class="stat-card__label">{stat.label}</span>
-            </article>
-          ))
-        }
-      </div>
     </div>
 
     <aside class="hero__panel reveal">
@@ -66,14 +56,6 @@ const featuredWorkshops = allWorkshops
           height="1350"
           loading="eager"
         />
-      </div>
-      <div class="spotlight-card">
-        <p class="eyebrow">What the work holds</p>
-        <ul class="spotlight-list">
-          <li>Commedia dell'Arte intensives with masked character work</li>
-          <li>Neutral Mask workshops for presence and physical clarity</li>
-          <li>International residencies and guest studio intensives</li>
-        </ul>
       </div>
     </aside>
   </section>

@@ -34,16 +34,6 @@ export default config({
       path: "src/content/singletons/home",
       format: "json",
       schema: {
-        stats: fields.array(
-          fields.object({
-            value: fields.text({ label: "Value", validation: { isRequired: true } }),
-            label: fields.text({ label: "Label", validation: { isRequired: true } }),
-          }),
-          {
-            label: "Stats",
-            itemLabel: (props) => props.fields.label.value,
-          }
-        ),
         pillars: fields.array(
           fields.object({
             title: fields.text({ label: "Title", validation: { isRequired: true } }),
