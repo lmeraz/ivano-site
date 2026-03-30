@@ -1,35 +1,34 @@
 ---
+import GalleryGrid from "../components/GalleryGrid.astro";
 import PastWorkshopList from "../components/PastWorkshopList.astro";
+import PhilosophyGrid from "../components/PhilosophyGrid.astro";
 import PillarGrid from "../components/PillarGrid.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TestimonialGrid from "../components/TestimonialGrid.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { reader, personSchema } from "../lib/reader";
 
-const siteSettings = await reader.singletons.siteSettings.read();
+const [siteSettings, about, testimonialsData, allPastWorkshops] =
+  await Promise.all([
+    reader.singletons.siteSettings.read(),
+    reader.singletons.about.read(),
+    reader.singletons.testimonials.read(),
+    reader.collections.pastWorkshops.all(),
+  ]);
 if (!siteSettings) throw new Error("Site settings not found");
-
-const about = await reader.singletons.about.read();
 if (!about) throw new Error("About content not found");
-
-const home = await reader.singletons.home.read();
-if (!home) throw new Error("Home content not found");
-
-const testimonialsData = await reader.singletons.testimonials.read();
 if (!testimonialsData) throw new Error("Testimonials not found");
-
-const allPastWorkshops = await reader.collections.pastWorkshops.all();
 const pastWorkshops = allPastWorkshops.map((w) => w.entry);
 ---
 
 <BaseLayout
   title="About"
   description={`${siteSettings.name} is a theatre pedagogue and movement teacher trained in the Lecoq pedagogy, specializing in Commedia dell'Arte, Neutral Mask, and physical theatre.`}
-  structuredData={await personSchema("/about/")}
+  structuredData={personSchema(siteSettings, "/about/")}
 >
   <section class="page-hero section">
     <div class="page-hero__inner reveal">
-      <p class="eyebrow">About {siteSettings.name}</p>
+      <p class="eyebrow">Movement, Theatre & Creative Inquiry</p>
       <h1>{about.heroHeadline}</h1>
       <p>{about.heroDescription}</p>
     </div>
@@ -39,8 +38,8 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
           src="/portrait.jpg"
           alt="Ivano Conte -- theatre pedagogue and movement teacher"
           class="portrait-card__img"
-          width="320"
-          height="320"
+          width="600"
+          height="600"
           loading="eager"
         />
       </div>
@@ -67,18 +66,21 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
 
   <section class="section section--tint">
     <SectionTitle
-      eyebrow="Philosophy"
-      title="Mistakes are where discovery begins."
-      description="A teaching approach built on play within the group and a space open to experimentation."
+      eyebrow="Teaching Philosophy"
+      title="Movement as Inquiry, Creation as Practice"
+      description="I see the actor not as a container to fill, but as an artist with a physical intelligence already present in their body: an intelligence that can be sharpened, questioned, and expanded."
     />
-    <PillarGrid pillars={[...home.pillars]} />
+    <PhilosophyGrid areas={about.philosophyAreas} />
   </section>
 
   <section class="section">
     <div class="image-band">
-      <img src="/teaching.jpg" alt="Ivano leading a workshop -- students in movement on the floor" class="image-band__img reveal" width="1080" height="763" loading="lazy" />
-      <img src="/workshop-group.jpg" alt="Workshop ensemble with Commedia dell'Arte masks" class="image-band__img reveal" width="1080" height="1080" loading="lazy" />
-      <img src="/neutral-mask.jpg" alt="The Neutral Mask -- foundational tool of the Lecoq pedagogy" class="image-band__img reveal" width="1080" height="1350" loading="lazy" />
+      <img src="/band-1.jpg" alt="Workshop ensemble in movement" class="image-band__img reveal" width="1080" height="763" loading="lazy" />
+      <img src="/band-2.jpg" alt="Mask work in the studio" class="image-band__img reveal" width="1080" height="1080" loading="lazy" />
+      <img src="/band-3.jpg" alt="Commedia dell'Arte performance" class="image-band__img reveal" width="1080" height="1350" loading="lazy" />
+      <img src="/band-4.jpg" alt="Teaching physical theatre" class="image-band__img reveal" width="1080" height="763" loading="lazy" />
+      <img src="/band-5.jpg" alt="Ensemble work on stage" class="image-band__img reveal" width="1080" height="1080" loading="lazy" />
+      <img src="/band-6.jpg" alt="Movement and mask exploration" class="image-band__img reveal" width="1080" height="1350" loading="lazy" />
     </div>
   </section>
 
@@ -106,7 +108,15 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
       title="Someone willing to step up and put themselves on the line."
       description="Not just professionals -- anyone drawn to physical expression, presence, and play."
     />
-    <PillarGrid pillars={[...about.idealStudents]} />
+    <PillarGrid pillars={about.idealStudents} />
+  </section>
+
+  <section class="section">
+    <SectionTitle
+      eyebrow="In The Studio & On Stage"
+      title="The work in images"
+    />
+    <GalleryGrid images={about.galleryImages} />
   </section>
 
   <section class="section">
@@ -122,6 +132,6 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
       eyebrow="What Students Say"
       title="Words from those who have done the work."
     />
-    <TestimonialGrid testimonials={testimonialsData.items.slice(0, 3)} />
+    <TestimonialGrid testimonials={testimonialsData.items} expandable />
   </section>
 </BaseLayout>
