@@ -3,10 +3,11 @@ import SectionTitle from "../components/SectionTitle.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { reader } from "../lib/reader";
 
-const siteSettings = await reader.singletons.siteSettings.read();
+const [siteSettings, contact] = await Promise.all([
+  reader.singletons.siteSettings.read(),
+  reader.singletons.contact.read(),
+]);
 if (!siteSettings) throw new Error("Site settings not found");
-
-const contact = await reader.singletons.contact.read();
 if (!contact) throw new Error("Contact content not found");
 const channels = contact.channels.map((ch) => ({
   ...ch,
@@ -28,6 +29,16 @@ const channels = contact.channels.map((ch) => ({
       <p>{contact.heroDescription}</p>
     </div>
     <aside class="page-hero__aside reveal">
+      <div class="portrait-card">
+        <img
+          src="/hero-contact.jpg"
+          alt="Ivano Conte in conversation -- seated in the studio"
+          class="portrait-card__img"
+          width="600"
+          height="450"
+          loading="eager"
+        />
+      </div>
       <div class="detail-card">
         <h2>Common reasons to reach out</h2>
         <ul class="check-list">
