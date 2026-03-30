@@ -1,0 +1,23 @@
+---
+interface PhilosophyArea {
+  readonly title: string;
+  readonly description: string;
+}
+
+interface Props {
+  areas: readonly PhilosophyArea[];
+}
+
+const { areas } = Astro.props;
+---
+
+<div class="philosophy-grid">
+  {
+    areas.map((area) => (
+      <article class="philosophy-card reveal">
+        <h3>{area.title}</h3>
+        <p>{area.description}</p>
+      </article>
+    ))
+  }
+</div>

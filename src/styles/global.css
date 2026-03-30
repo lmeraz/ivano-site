@@ -1034,6 +1034,40 @@ ul, ol {
   }
 }
 
+/* Philosophy grid — 2-column layout for teaching philosophy areas */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.philosophy-card {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 3px solid var(--green);
+  box-shadow: var(--shadow);
+}
+
+.philosophy-card h3 {
+  font-family: var(--display-font);
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.philosophy-card p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.65;
+}
+
+@media (max-width: 720px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 720px) {
   .site-header__inner,
   .section,
