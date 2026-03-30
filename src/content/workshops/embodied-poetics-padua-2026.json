@@ -44,5 +44,13 @@
       "label": "Creative laboratory",
       "detail": "Ensemble creation work that synthesizes the residency's explorations into original theatrical material."
     }
-  ]
+  ],
+  "image": "/card-embodied-poetics.jpg",
+  "focusAreas": [
+    "Movement analysis and physical expression",
+    "The creative process in Lecoq pedagogy",
+    "Ensemble creation and collective play",
+    "Integration of somatic and theatrical practice"
+  ],
+  "moduleDescription": "An immersive journey through the foundations of Jacques Lecoq's pedagogy, combining movement analysis, mask work, and creative process in an intensive residential format."
 }

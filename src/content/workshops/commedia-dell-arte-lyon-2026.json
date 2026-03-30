@@ -44,5 +44,13 @@
       "label": "Performance and play",
       "detail": "Ensemble scenes and lazzi that bring the characters to life in comic situations."
     }
-  ]
+  ],
+  "image": "/card-commedia-lyon.jpg",
+  "focusAreas": [
+    "The mechanics of Commedia characters",
+    "Improvisation and canovacci",
+    "Rhythm, timing, and comic precision",
+    "Vocal play and physical instinct"
+  ],
+  "moduleDescription": "This workshop develops confidence, agility, and the capacity for quick, instinctive creative choices. A dynamic training in half-mask performance grounded in Commedia traditions."
 }
