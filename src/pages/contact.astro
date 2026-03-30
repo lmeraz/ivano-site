@@ -9,7 +9,7 @@ const [siteSettings, contact] = await Promise.all([
 ]);
 if (!siteSettings) throw new Error("Site settings not found");
 if (!contact) throw new Error("Contact content not found");
-const channels = contact.channels.map((ch) => ({
+const channels = contact.channels.map((ch: { title: string; description: string; subject: string; label: string }) => ({
   ...ch,
   href: ch.subject
     ? `mailto:${siteSettings.email}?subject=${encodeURIComponent(ch.subject)}`
@@ -39,15 +39,6 @@ const channels = contact.channels.map((ch) => ({
           loading="eager"
         />
       </div>
-      <div class="detail-card">
-        <h2>Common reasons to reach out</h2>
-        <ul class="check-list">
-          <li>Register for a Commedia dell'Arte or Neutral Mask workshop</li>
-          <li>Ask about pricing, early bird rates, or bundle discounts</li>
-          <li>Inquire about guest teaching or festival residencies</li>
-          <li>Apply for a scholarship</li>
-        </ul>
-      </div>
     </aside>
   </section>
 
@@ -55,11 +46,10 @@ const channels = contact.channels.map((ch) => ({
     <SectionTitle
       eyebrow="Get In Touch"
       title="Warm regards from Rome."
-      description="The fastest way to start is a simple email. We respond to every message."
     />
     <div class="contact-grid">
       {
-        channels.map((channel) => (
+        channels.map((channel: { title: string; description: string; href: string; label: string }) => (
           <article class="contact-card reveal">
             <h2>{channel.title}</h2>
             <p>{channel.description}</p>

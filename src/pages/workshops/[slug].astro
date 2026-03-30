@@ -5,7 +5,7 @@ import { reader } from "../../lib/reader";
 
 export async function getStaticPaths() {
   const allWorkshops = await reader.collections.workshops.all();
-  return allWorkshops.map((workshop) => ({
+  return allWorkshops.map((workshop: { slug: string; entry: Record<string, any> }) => ({
     params: { slug: workshop.slug },
     props: { workshop: workshop.entry },
   }));
@@ -106,14 +106,14 @@ const primaryCta = workshop.registrationUrl
         <article class="info-card reveal">
           <h2>Who this is for</h2>
           <ul class="check-list">
-            {workshop.audience.map((item) => <li>{item}</li>)}
+            {workshop.audience.map((item: string) => <li>{item}</li>)}
           </ul>
         </article>
 
         <article class="info-card reveal">
           <h2>What you leave with</h2>
           <ul class="check-list">
-            {workshop.outcomes.map((item) => <li>{item}</li>)}
+            {workshop.outcomes.map((item: string) => <li>{item}</li>)}
           </ul>
         </article>
       </div>
@@ -122,7 +122,7 @@ const primaryCta = workshop.registrationUrl
         <article class="info-card reveal">
           <h2>Session flow</h2>
           <div class="schedule-grid">
-            {workshop.schedule.map((step) => (
+            {workshop.schedule.map((step: { label: string; detail: string }) => (
               <div class="schedule-step">
                 <h3>{step.label}</h3>
                 <p>{step.detail}</p>
@@ -146,12 +146,12 @@ const primaryCta = workshop.registrationUrl
   {workshop.focusAreas && workshop.focusAreas.length > 0 && (
     <section class="section section--tint">
       <SectionTitle
-        eyebrow="What We Explore"
-        title="Focus areas for this workshop"
+        eyebrow="Focus Areas"
+        title="What we explore."
       />
       <div class="philosophy-grid">
-        {workshop.focusAreas.map((area) => (
-          <article class="philosophy-card reveal">
+        {workshop.focusAreas.map((area: string) => (
+          <article class="info-card reveal">
             <p>{area}</p>
           </article>
         ))}

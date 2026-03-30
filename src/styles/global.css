@@ -330,8 +330,7 @@ ul, ol {
   background: rgba(107, 143, 85, 0.22);
 }
 
-/* ─── Stats ─── */
-.hero__stats,
+/* ─── Grids (shared) ─── */
 .card-grid,
 .pillar-grid,
 .quote-grid,
@@ -340,14 +339,6 @@ ul, ol {
   gap: 1px;
 }
 
-.hero__stats {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 2.5rem;
-  border: 1px solid var(--line);
-  background: var(--line);
-}
-
-.stat-card,
 .info-card,
 .workshop-card,
 .quote-card,
@@ -355,26 +346,6 @@ ul, ol {
 .detail-card,
 .banner {
   background: var(--surface);
-}
-
-.stat-card {
-  padding: 1.1rem 1.2rem;
-}
-
-.stat-card__value {
-  display: block;
-  color: var(--green);
-  font-family: var(--display-font);
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1;
-}
-
-.stat-card__label {
-  display: block;
-  margin-top: 0.5rem;
-  color: var(--muted);
-  font-size: 0.88rem;
 }
 
 /* ─── Hero panel ─── */
@@ -400,20 +371,6 @@ ul, ol {
   inset: 0;
 }
 
-.portrait-card__mark {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1rem;
-  color: rgba(245, 239, 230, 0.15);
-  font-family: var(--display-font);
-  font-size: clamp(4rem, 10vw, 7rem);
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.spotlight-card,
 .detail-card,
 .info-card,
 .workshop-card,
@@ -423,28 +380,24 @@ ul, ol {
   padding: 1.5rem;
 }
 
-.spotlight-list,
 .check-list,
 .meta-list,
 .footer ul {
   list-style: none;
 }
 
-.spotlight-list,
 .check-list {
   display: grid;
   gap: 0.75rem;
   margin-top: 1rem;
 }
 
-.spotlight-list li,
 .check-list li {
   position: relative;
   padding-left: 1.4rem;
   font-size: 0.95rem;
 }
 
-.spotlight-list li::before,
 .check-list li::before {
   position: absolute;
   left: 0;
@@ -696,7 +649,6 @@ ul, ol {
 /* ─── FAQ ─── */
 .faq-list {
   display: grid;
-  gap: 0;
   border: 1px solid var(--line);
   background: var(--line);
 }
@@ -803,16 +755,6 @@ ul, ol {
   background: var(--ink);
 }
 
-@media (max-width: 720px) {
-  .image-band {
-    grid-template-columns: 1fr;
-  }
-
-  .image-band__img {
-    height: 220px;
-  }
-}
-
 /* ─── Past workshops ─── */
 .past-workshops {
   display: grid;
@@ -839,19 +781,6 @@ ul, ol {
   color: var(--muted);
   text-align: right;
   white-space: nowrap;
-}
-
-/* ─── Decorative divider ─── */
-.divider {
-  width: 48px;
-  height: 1px;
-  background: var(--green);
-  border: none;
-  margin: 0;
-}
-
-.divider--center {
-  margin-inline: auto;
 }
 
 /* ─── Microcopy ─── */
@@ -980,13 +909,10 @@ ul, ol {
     justify-self: start;
   }
 
-  .hero__stats {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .pillar-grid,
   .card-grid,
-  .quote-grid {
+  .quote-grid,
+  .philosophy-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1002,40 +928,19 @@ ul, ol {
   .detail-side {
     border: 1px solid var(--line);
   }
+
+  .gallery-grid {
+    columns: 2;
+  }
 }
 
-/* Philosophy grid — 2-column layout for teaching philosophy areas */
+/* ─── Philosophy grid ─── */
 .philosophy-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-}
-
-.philosophy-card {
-  background: var(--surface);
-  border-radius: 12px;
-  padding: 1.5rem;
-  border-left: 3px solid var(--green);
-  box-shadow: var(--shadow);
-}
-
-.philosophy-card h3 {
-  font-family: var(--display-font);
-  font-size: 1.15rem;
-  margin: 0 0 0.5rem;
-}
-
-.philosophy-card p {
-  font-size: 0.92rem;
-  color: var(--muted);
-  margin: 0;
-  line-height: 1.65;
-}
-
-@media (max-width: 720px) {
-  .philosophy-grid {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
 }
 
 @media (max-width: 720px) {
@@ -1050,14 +955,6 @@ ul, ol {
     font-size: clamp(2.6rem, 12vw, 3.8rem);
   }
 
-  .hero__stats {
-    grid-template-columns: 1fr;
-  }
-
-  .nav {
-    justify-content: flex-start;
-  }
-
   .button-row,
   .banner__actions,
   .footer__legal {
@@ -1065,14 +962,24 @@ ul, ol {
     align-items: stretch;
   }
 
-  .button,
-  .button--ghost,
-  .button--soft {
+  .button {
     width: 100%;
   }
 
   .portrait-card {
     min-height: 16rem;
+  }
+
+  .image-band {
+    grid-template-columns: 1fr;
+  }
+
+  .image-band__img {
+    height: 220px;
+  }
+
+  .gallery-grid {
+    columns: 1;
   }
 
   .past-workshop {
@@ -1103,17 +1010,6 @@ ul, ol {
   break-inside: avoid;
 }
 
-@media (max-width: 980px) {
-  .gallery-grid {
-    columns: 2;
-  }
-}
-
-@media (max-width: 720px) {
-  .gallery-grid {
-    columns: 1;
-  }
-}
 
 /* Workshop card image */
 .workshop-card__img {

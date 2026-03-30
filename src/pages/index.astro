@@ -19,8 +19,8 @@ if (!home) throw new Error("Home content not found");
 if (!testimonialsData) throw new Error("Testimonials not found");
 if (!faqsData) throw new Error("FAQs not found");
 const featuredWorkshops = allWorkshops
-  .map((w) => ({ ...w.entry, slug: w.slug }))
-  .filter((w) => w.featured);
+  .map((w: { slug: string; entry: Record<string, any> }) => ({ ...w.entry, slug: w.slug }))
+  .filter((w: Record<string, any>) => w.featured);
 ---
 
 <BaseLayout
@@ -72,18 +72,17 @@ const featuredWorkshops = allWorkshops
   <section class="section section--tint" id="featured-workshops">
     <SectionTitle
       eyebrow="Next Workshops"
-      title="Upcoming intensives in Los Angeles."
-      description="Five days of Commedia dell'Arte followed by a Neutral Mask weekend. Take one or immerse yourself in both."
+      title="Upcoming workshops."
     />
     <div class="card-grid">
-      {featuredWorkshops.map((workshop) => <WorkshopCard workshop={workshop} />)}
+      {featuredWorkshops.map((workshop: any) => <WorkshopCard workshop={workshop} />)}
     </div>
   </section>
 
   <section class="section section--tint">
     <SectionTitle
       eyebrow="Testimonials"
-      title="What performers say after the work."
+      title="What students say."
     />
     <TestimonialGrid testimonials={testimonialsData.items.slice(0, 3)} />
   </section>
@@ -91,16 +90,12 @@ const featuredWorkshops = allWorkshops
   <section class="section">
     <div class="banner reveal">
       <div class="banner__copy">
-        <p class="eyebrow">Stay connected</p>
-        <h2>I share new dates, early access, and workshop updates from Rome and beyond.</h2>
-        <p>
-          Reach out to be first to know when new workshops open for registration
-          in Los Angeles, Europe, and beyond.
-        </p>
+        <p class="eyebrow">Contact</p>
+        <h2>Warm regards from Rome.</h2>
       </div>
       <div class="banner__actions">
         <a class="button" href="/contact/">Get in touch</a>
-        <a class="button button--soft" href="/about/">Read the teaching story</a>
+        <a class="button button--soft" href="/about/">About my approach</a>
       </div>
     </div>
   </section>
@@ -108,13 +103,12 @@ const featuredWorkshops = allWorkshops
   <section class="section section--narrow" id="faq">
     <SectionTitle
       eyebrow="FAQ"
-      title="Questions that come up before joining."
-      description="For performers, educators, and anyone curious about the work."
+      title="Common questions."
       align="center"
     />
     <div class="faq-list">
       {
-        faqsData.items.map((item) => (
+        faqsData.items.map((item: { question: string; answer: string }) => (
           <details class="faq-item reveal">
             <summary>{item.question}</summary>
             <p>{item.answer}</p>

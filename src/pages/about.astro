@@ -18,7 +18,7 @@ const [siteSettings, about, testimonialsData, allPastWorkshops] =
 if (!siteSettings) throw new Error("Site settings not found");
 if (!about) throw new Error("About content not found");
 if (!testimonialsData) throw new Error("Testimonials not found");
-const pastWorkshops = allPastWorkshops.map((w) => w.entry);
+const pastWorkshops = allPastWorkshops.map((w: { entry: { title: string; location: string; dates: string } }) => w.entry);
 ---
 
 <BaseLayout
@@ -48,14 +48,12 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
 
   <section class="section">
     <div class="split-layout">
-      <div>
-        <SectionTitle
-          eyebrow="Biography"
-          title="Movement, theatre, and creative inquiry."
-        />
-      </div>
+      <SectionTitle
+        eyebrow="Biography"
+        title="Background and training."
+      />
       <div class="story-stack">
-        {about.bioParagraphs.map((para) => (
+        {about.bioParagraphs.map((para: string) => (
           <article class="info-card reveal">
             <p>{para}</p>
           </article>
@@ -86,14 +84,12 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
 
   <section class="section">
     <div class="split-layout">
-      <div>
-        <SectionTitle
-          eyebrow="Teaching Story"
-          title="In his own words."
-        />
-      </div>
+      <SectionTitle
+        eyebrow="Teaching Story"
+        title="Teaching philosophy."
+      />
       <div class="story-stack">
-        {about.teachingQuotes.map((quote) => (
+        {about.teachingQuotes.map((quote: string) => (
           <article class="info-card reveal">
             <p>{quote}</p>
           </article>
@@ -113,7 +109,7 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
   <section class="section">
     <SectionTitle
       eyebrow="In The Studio & On Stage"
-      title="The work in images"
+      title="Gallery"
     />
     <GalleryGrid images={about.galleryImages} />
   </section>
@@ -121,7 +117,7 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
   <section class="section">
     <SectionTitle
       eyebrow="Workshop History"
-      title="Where I have taught."
+      title="International teaching."
     />
     <PastWorkshopList workshops={pastWorkshops} />
   </section>
@@ -129,7 +125,7 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
   <section class="section section--tint">
     <SectionTitle
       eyebrow="What Students Say"
-      title="Words from those who have done the work."
+      title="Student testimonials."
     />
     <TestimonialGrid testimonials={testimonialsData.items} expandable />
   </section>

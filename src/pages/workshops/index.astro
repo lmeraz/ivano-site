@@ -1,5 +1,6 @@
 ---
 import PastWorkshopList from "../../components/PastWorkshopList.astro";
+import PhilosophyGrid from "../../components/PhilosophyGrid.astro";
 import SectionTitle from "../../components/SectionTitle.astro";
 import WorkshopCard from "../../components/WorkshopCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -11,11 +12,19 @@ const [siteSettings, allWorkshops, allPastWorkshops] = await Promise.all([
   reader.collections.pastWorkshops.all(),
 ]);
 if (!siteSettings) throw new Error("Site settings not found");
-const workshops = allWorkshops.map((w) => ({ ...w.entry, slug: w.slug }));
-const openWorkshops = workshops.filter((w) => w.status === "open");
-const waitlistWorkshops = workshops.filter((w) => w.status === "waitlist");
-const futureWorkshops = workshops.filter((w) => w.status === "soon");
-const pastWorkshops = allPastWorkshops.map((w) => w.entry);
+const workshops = allWorkshops.map((w: { slug: string; entry: Record<string, any> }) => ({ ...w.entry, slug: w.slug }));
+const openWorkshops = workshops.filter((w: Record<string, any>) => w.status === "open");
+const waitlistWorkshops = workshops.filter((w: Record<string, any>) => w.status === "waitlist");
+const futureWorkshops = workshops.filter((w: Record<string, any>) => w.status === "soon");
+const pastWorkshops = allPastWorkshops.map((w: { entry: { title: string; location: string; dates: string } }) => w.entry);
+
+const workshopModules = [
+  { title: "Neutral Mask: Foundations of Presence", description: "A practical exploration of physical clarity and availability through the neutral mask. Focus areas include presence without tension, grounded movement, essential action free of excess, and responsiveness to space and impulse." },
+  { title: "Mimodynamics: Forces, Qualities and Transformation", description: "A study of how dynamics such as resistance, flow, weight, texture, and acceleration shape physical behaviour. This training expands expressive range and helps performers shift between energies with intention and clarity." },
+  { title: "Larval Masks: Form, Play and Exaggeration", description: "An exploration of larval masks and their amplified physical language. This work builds imagination, playfulness, and a bold approach to performance through playing from form rather than psychology." },
+  { title: "Commedia dell'Arte: Instinct, Rhythm & Comic Craft", description: "A dynamic training in half-mask performance grounded in Commedia traditions. This workshop develops confidence, agility, and the capacity for quick, instinctive creative choices." },
+  { title: "Bouffon: Satire, Group Dynamics and Theatrical Mischief", description: "A playful yet challenging exploration of parody, critique, and collective performance. Bouffon training encourages performers to step beyond naturalism and embrace bold, surprising theatricality." },
+];
 ---
 
 <BaseLayout
@@ -44,15 +53,6 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
           loading="eager"
         />
       </div>
-      <div class="detail-card">
-        <h2>What to expect</h2>
-        <ul class="check-list">
-          <li>Small groups with direct, personal feedback</li>
-          <li>Full-day intensives focused on the body and the mask</li>
-          <li>A space open to all levels unless noted otherwise</li>
-          <li>Scholarships available for underrepresented practitioners</li>
-        </ul>
-      </div>
     </aside>
   </section>
 
@@ -60,11 +60,10 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
     <section class="section">
       <SectionTitle
         eyebrow="Registration Open"
-        title="Workshops accepting registration now."
-        description="Secure your place in the next intensive."
+        title="Current workshops."
       />
       <div class="card-grid">
-        {openWorkshops.map((workshop) => <WorkshopCard workshop={workshop} />)}
+        {openWorkshops.map((workshop: any) => <WorkshopCard workshop={workshop} />)}
       </div>
     </section>
   )}
@@ -73,11 +72,10 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
     <section class="section section--tint">
       <SectionTitle
         eyebrow="Waitlist"
-        title="Workshops at capacity — join the waitlist."
-        description="Places open up regularly. Add your name and we will reach out as soon as a spot is available."
+        title="Waitlist workshops."
       />
       <div class="card-grid">
-        {waitlistWorkshops.map((workshop) => <WorkshopCard workshop={workshop} />)}
+        {waitlistWorkshops.map((workshop: any) => <WorkshopCard workshop={workshop} />)}
       </div>
     </section>
   )}
@@ -86,11 +84,10 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
     <section class="section section--tint">
       <SectionTitle
         eyebrow="Coming Soon"
-        title="Future workshops on the horizon."
-        description="Details and registration will open closer to the dates. Express your interest to be notified first."
+        title="Future workshops."
       />
       <div class="card-grid">
-        {futureWorkshops.map((workshop) => <WorkshopCard workshop={workshop} />)}
+        {futureWorkshops.map((workshop: any) => <WorkshopCard workshop={workshop} />)}
       </div>
     </section>
   )}
@@ -98,37 +95,15 @@ const pastWorkshops = allPastWorkshops.map((w) => w.entry);
   <section class="section section--tint">
     <SectionTitle
       eyebrow="Available Workshops"
-      title="What I teach."
-      description="These workshops can be offered individually or combined into intensive programs. Contact me to bring any of these to your studio, school, or festival."
+      title="Workshop modules."
     />
-    <div class="philosophy-grid">
-      <article class="philosophy-card reveal">
-        <h3>Neutral Mask: Foundations of Presence</h3>
-        <p>A practical exploration of physical clarity and availability through the neutral mask. Focus areas include presence without tension, grounded movement, essential action free of excess, and responsiveness to space and impulse.</p>
-      </article>
-      <article class="philosophy-card reveal">
-        <h3>Mimodynamics: Forces, Qualities and Transformation</h3>
-        <p>A study of how dynamics such as resistance, flow, weight, texture, and acceleration shape physical behaviour. This training expands expressive range and helps performers shift between energies with intention and clarity.</p>
-      </article>
-      <article class="philosophy-card reveal">
-        <h3>Larval Masks: Form, Play and Exaggeration</h3>
-        <p>An exploration of larval masks and their amplified physical language. This work builds imagination, playfulness, and a bold approach to performance through playing from form rather than psychology.</p>
-      </article>
-      <article class="philosophy-card reveal">
-        <h3>Commedia dell'Arte: Instinct, Rhythm & Comic Craft</h3>
-        <p>A dynamic training in half-mask performance grounded in Commedia traditions. This workshop develops confidence, agility, and the capacity for quick, instinctive creative choices.</p>
-      </article>
-      <article class="philosophy-card reveal">
-        <h3>Bouffon: Satire, Group Dynamics and Theatrical Mischief</h3>
-        <p>A playful yet challenging exploration of parody, critique, and collective performance. Bouffon training encourages performers to step beyond naturalism and embrace bold, surprising theatricality.</p>
-      </article>
-    </div>
+    <PhilosophyGrid areas={workshopModules} />
   </section>
 
   <section class="section">
     <SectionTitle
       eyebrow="Past Workshops"
-      title="Where the work has been."
+      title="Previous workshops."
     />
     <PastWorkshopList workshops={pastWorkshops} />
   </section>
