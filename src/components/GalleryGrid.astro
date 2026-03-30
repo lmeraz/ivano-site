@@ -1,0 +1,22 @@
+---
+interface Props {
+  images: readonly string[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="gallery-grid">
+  {
+    images.map((src, i) => (
+      <img
+        src={src}
+        alt={`Workshop and performance photography ${i + 1}`}
+        class="gallery-grid__img"
+        loading="lazy"
+        width="400"
+        height="300"
+      />
+    ))
+  }
+</div>
