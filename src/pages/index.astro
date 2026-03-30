@@ -80,31 +80,6 @@ const featuredWorkshops = allWorkshops
     </div>
   </section>
 
-  <section class="section">
-    <div class="split-layout">
-      <div>
-        <SectionTitle
-          eyebrow="In The Room"
-          title="Every session I lead begins in the body."
-          description="The structure moves from physical preparation through ensemble play to integration -- rigorous training that stays playful."
-        />
-      </div>
-      <ol class="process-list">
-        {
-          home.process.map((step, index) => (
-            <li class="process-step reveal">
-              <span class="process-step__number">0{index + 1}</span>
-              <div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
-  </section>
-
   <section class="section section--tint">
     <SectionTitle
       eyebrow="Testimonials"

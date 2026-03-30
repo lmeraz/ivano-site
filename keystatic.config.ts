@@ -44,16 +44,6 @@ export default config({
             itemLabel: (props) => props.fields.title.value,
           }
         ),
-        process: fields.array(
-          fields.object({
-            title: fields.text({ label: "Title", validation: { isRequired: true } }),
-            description: fields.text({ label: "Description", multiline: true, validation: { isRequired: true } }),
-          }),
-          {
-            label: "Process Steps",
-            itemLabel: (props) => props.fields.title.value,
-          }
-        ),
       },
     }),
     about: singleton({

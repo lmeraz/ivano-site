@@ -497,7 +497,6 @@ ul, ol {
 .info-card h3,
 .workshop-card h3,
 .schedule-step h3,
-.process-step h3,
 .contact-card h2 {
   margin-top: 0.5rem;
   font-family: var(--display-font);
@@ -610,35 +609,6 @@ ul, ol {
 .split-layout {
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   align-items: start;
-}
-
-/* ─── Process steps ─── */
-.process-list {
-  display: grid;
-  list-style: none;
-  border: 1px solid var(--line);
-  background: var(--line);
-}
-
-.process-step {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.2rem;
-  padding: 1.3rem 1.5rem;
-  background: var(--surface);
-}
-
-.process-step__number {
-  color: var(--sage);
-  font-family: var(--display-font);
-  font-size: 2.4rem;
-  font-weight: 300;
-  line-height: 1;
-}
-
-.process-step p {
-  margin-top: 0.35rem;
-  color: var(--muted);
 }
 
 /* ─── Quote cards ─── */
