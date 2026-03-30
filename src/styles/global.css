@@ -1153,3 +1153,45 @@ ul, ol {
   border-radius: 12px 12px 0 0;
   margin: -1.5rem -1.5rem 1rem;
 }
+
+/* Expandable testimonial details */
+.quote-card__details {
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.75rem;
+}
+
+.quote-card__details summary {
+  cursor: pointer;
+  color: var(--green);
+  font-size: 0.88rem;
+  font-weight: 500;
+  list-style: none;
+}
+
+.quote-card__details summary::before {
+  content: "\25B8 ";
+}
+
+.quote-card__details[open] summary::before {
+  content: "\25BE ";
+}
+
+.quote-card__details p {
+  margin-top: 0.75rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* Section footer — summary text below a grid */
+.section__footer {
+  max-width: 720px;
+  margin: 2rem auto 0;
+  text-align: center;
+}
+
+.section__footer p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.7;
+}

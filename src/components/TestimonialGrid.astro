@@ -1,15 +1,17 @@
 ---
 interface Testimonial {
-  name: string;
-  credit: string;
-  quote: string;
+  readonly name: string;
+  readonly credit: string;
+  readonly quote: string;
+  readonly fullQuote?: string;
 }
 
 interface Props {
-  testimonials: Testimonial[];
+  testimonials: readonly Testimonial[];
+  expandable?: boolean;
 }
 
-const { testimonials } = Astro.props;
+const { testimonials, expandable = false } = Astro.props;
 ---
 
 <div class="quote-grid">
@@ -17,6 +19,12 @@ const { testimonials } = Astro.props;
     testimonials.map((testimonial) => (
       <blockquote class="quote-card reveal">
         <p>"{testimonial.quote}"</p>
+        {expandable && testimonial.fullQuote && (
+          <details class="quote-card__details">
+            <summary>Read full testimonial</summary>
+            <p>"{testimonial.fullQuote}"</p>
+          </details>
+        )}
         <footer>
           <strong>{testimonial.name}</strong>
           <span>{testimonial.credit}</span>
