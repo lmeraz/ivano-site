@@ -1,10 +1,10 @@
 {
-  "heroHeadline": "A teacher who breaks down the fourth wall between himself and the student.",
-  "heroDescription": "Theatre pedagogue and movement teacher trained in the Lecoq pedagogy. A graduate of Il Cantiere Teatrale in Rome, Associate Lecoq Pedagogue with Embodied Poetics, and certified Feldenkrais Method practitioner.",
+  "heroHeadline": "I am an actor and movement pedagogue based in Rome, teaching internationally across Europe, Canada, and the United States.",
+  "heroDescription": "My training has been shaped by diverse theatrical traditions and by master teachers such as Amy Russell, Norman Taylor, Philippe Gaulier, Lassaad Saidi, Carlo Boso, Antonio Fava, Miguel Ángel Gutiérrez, Mai Rojas, and José Piris Pereda.",
   "bioParagraphs": [
-    "Ivano Conte is a theatre pedagogue and movement teacher trained in the Lecoq pedagogy. A graduate of Il Cantiere Teatrale in Rome, where he later became a founding member and teacher, he has studied with renowned masters including Norman Taylor, Amy Russell, Philippe Gaulier, Lassaad Saidi, Antonio Fava, José Piris Pereda, Mai Rojas, Pablo Ibarluzea, Miguel Ángel Gutiérrez, Vladimir Olshansky, Carlo Boso, and Emmanuel Gallot-Lavallée.",
-    "Ivano is an Associate Lecoq Pedagogue with Embodied Poetics, where he contributes to the transmission of Jacques Lecoq's methodology, focusing on movement analysis, Commedia dell'Arte, Bouffons, and the creative process. He has taught internationally, leading workshops in Italy, Canada, France, Corsica, and the United States.",
-    "In addition, Ivano is a certified Feldenkrais Method practitioner, integrating somatic awareness into actor training to deepen presence, precision, and creative freedom. His approach blends rigorous physical discipline with imaginative exploration, guiding performers toward authenticity, expressivity, and a living theatrical presence."
+    "I began my studies at Il Cantiere Teatrale and expanded my practice into Lecoq-inspired movement training, Commedia dell'Arte and mask theatre, mimodynamics and movement analysis, clown and bouffon, and somatic practice through the Feldenkrais Method®.",
+    "I also draw from years of martial arts and basic acrobatics, which shape my sense of rhythm, coordination, and physical intention: essential tools for any performer who works primarily through movement.",
+    "Today, I teach physical theatre and mask workshops internationally, helping artists refine their awareness, broaden their creative range, and build a confident, expressive relationship between body and stage. My goal is to support performers as they discover what moves them -- literally and creatively -- and to guide them toward a grounded, imaginative, and personally meaningful physical practice."
   ],
   "teachingQuotes": [
     "\"My teaching philosophy is based on play within the group and on creating a space that is open to experimentation -- and also to mistakes -- with the understanding that mistakes lead us to learn something and should not be demonized. I believe that a class in which people feel free to try, and even to 'be terrible,' is a class that is free to discover itself.\"",
@@ -24,5 +24,51 @@
       "title": "The curious",
       "description": "\"I do not believe that theatre is therapy, but I do believe that physical work leads to changes we can truly feel, allowing us to discover something new about ourselves.\""
     }
+  ],
+  "philosophyAreas": [
+    {
+      "title": "Attention & Awareness",
+      "description": "Training begins with attention: shifts of weight, the influence of space, the quality of someone else's movement, or the impulses emerging under pressure. This kind of noticing turns performers into active decision-makers and fuels authentic creative choices. Awareness isn't decorative: it activates imagination."
+    },
+    {
+      "title": "Movement With Dramatic Purpose",
+      "description": "In my approach, movement always carries intention. Direction, rhythm, tension, and flow become compositional tools, shaping emotional tone and narrative structure. Through analysis and exploration, actors learn that movement can think, argue, reveal, question, and transform."
+    },
+    {
+      "title": "Physical Imagination",
+      "description": "Creativity grows when performers allow their bodies to explore alternative logics: unfamiliar dynamics, unusual rhythms, and non-habitual states. This work expands expressive possibilities, making space for new forms of character, atmosphere, and theatrical presence."
+    },
+    {
+      "title": "Mask Work",
+      "description": "Masks require clarity, precision, and physical intention. Neutral masks, larval forms, expressive masks, and half masks shift attention away from facial expression and toward the body as the primary carrier of meaning. Mask work cultivates boldness, responsiveness, and new ways of understanding space and rhythm."
+    },
+    {
+      "title": "Feldenkrais Method®",
+      "description": "As a certified Feldenkrais practitioner, I guide performers toward greater ease, coordination, and intentional movement. Somatic work helps reduce strain, refine choices, and support sustainable physical practice: essential for long-term training and performance."
+    },
+    {
+      "title": "Beyond Human Movement",
+      "description": "Exploring non-human dynamics -- instinctive, mechanical, elemental -- enriches physical vocabulary and deepens sensitivity. This research helps performers break habitual patterns, opening space for empathy, humour, and imaginative transformation."
+    }
+  ],
+  "galleryImages": [
+    "/gallery-01.jpg",
+    "/gallery-02.jpg",
+    "/gallery-03.jpg",
+    "/gallery-04.jpg",
+    "/gallery-05.jpg",
+    "/gallery-06.jpg",
+    "/gallery-07.jpg",
+    "/gallery-08.jpg",
+    "/gallery-09.jpg",
+    "/gallery-10.jpg",
+    "/gallery-11.jpg",
+    "/gallery-12.jpg",
+    "/gallery-13.jpg",
+    "/gallery-14.jpg",
+    "/gallery-15.jpg",
+    "/gallery-16.jpg",
+    "/gallery-17.jpg",
+    "/gallery-18.jpg"
   ]
 }
