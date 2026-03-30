@@ -91,6 +91,20 @@ export default config({
             itemLabel: (props) => props.fields.title.value,
           }
         ),
+        philosophyAreas: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title", validation: { isRequired: true } }),
+            description: fields.text({ label: "Description", multiline: true, validation: { isRequired: true } }),
+          }),
+          {
+            label: "Teaching Philosophy Areas",
+            itemLabel: (props) => props.fields.title.value,
+          }
+        ),
+        galleryImages: fields.array(
+          fields.text({ label: "Image Path" }),
+          { label: "Gallery Images" }
+        ),
       },
     }),
     contact: singleton({
@@ -124,6 +138,7 @@ export default config({
             name: fields.text({ label: "Name", validation: { isRequired: true } }),
             credit: fields.text({ label: "Credit", validation: { isRequired: true } }),
             quote: fields.text({ label: "Quote", multiline: true, validation: { isRequired: true } }),
+            fullQuote: fields.text({ label: "Full Quote (for About page)", multiline: true }),
           }),
           {
             label: "Testimonials",
@@ -203,6 +218,12 @@ export default config({
             itemLabel: (props) => props.fields.label.value,
           }
         ),
+        image: fields.text({ label: "Card Image Path" }),
+        focusAreas: fields.array(
+          fields.text({ label: "Focus Area" }),
+          { label: "Focus Areas" }
+        ),
+        moduleDescription: fields.text({ label: "Module Description", multiline: true }),
       },
     }),
     pastWorkshops: collection({
