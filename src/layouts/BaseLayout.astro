@@ -1,7 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { site } from "../data/site";
+import { reader } from "../lib/reader";
 import "../styles/global.css";
 
 interface Props {
@@ -12,16 +12,19 @@ interface Props {
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
+const siteSettings = await reader.singletons.siteSettings.read();
+if (!siteSettings) throw new Error("Site settings not found");
+
 const {
   title,
-  description = site.description,
+  description = siteSettings.description,
   path = Astro.url.pathname,
   pageClass = "",
   structuredData,
 } = Astro.props;
 
-const pageTitle = title ? `${title} | ${site.name}` : `${site.name} | Theatre Pedagogue`;
-const canonicalUrl = new URL(path, site.siteUrl).toString();
+const pageTitle = title ? `${title} | ${siteSettings.name}` : `${siteSettings.name} | Theatre Pedagogue`;
+const canonicalUrl = new URL(path, siteSettings.siteUrl).toString();
 const structured = structuredData
   ? Array.isArray(structuredData)
     ? structuredData
@@ -48,7 +51,7 @@ const structured = structuredData
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={`${site.siteUrl}/og-card.svg`} />
+    <meta property="og:image" content={`${siteSettings.siteUrl}/og-card.svg`} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
