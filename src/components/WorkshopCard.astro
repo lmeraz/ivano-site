@@ -1,5 +1,21 @@
 ---
-import type { Workshop } from "../data/site";
+interface Workshop {
+  slug: string;
+  title: string;
+  badge: string;
+  strapline: string;
+  dateLabel: string;
+  format: string;
+  priceLabel: string;
+  level: string;
+  location: string;
+  seats: string;
+  status: string;
+  statusLabel: string;
+  registrationUrl?: string | null;
+  fallbackUrl: string;
+  fallbackLabel: string;
+}
 
 interface Props {
   workshop: Workshop;
