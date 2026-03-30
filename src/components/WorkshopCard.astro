@@ -15,6 +15,7 @@ interface Workshop {
   registrationUrl?: string | null;
   fallbackUrl: string;
   fallbackLabel: string;
+  image?: string | null;
 }
 
 interface Props {
@@ -25,6 +26,16 @@ const { workshop } = Astro.props;
 ---
 
 <article class="workshop-card reveal">
+  {workshop.image && (
+    <img
+      src={workshop.image}
+      alt={`${workshop.title} workshop`}
+      class="workshop-card__img"
+      width="600"
+      height="400"
+      loading="lazy"
+    />
+  )}
   <div class="workshop-card__header">
     <p class="eyebrow">{workshop.badge}</p>
     <span class:list={["status-pill", `status-pill--${workshop.status}`]}>

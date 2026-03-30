@@ -1144,3 +1144,12 @@ ul, ol {
     columns: 1;
   }
 }
+
+/* Workshop card image */
+.workshop-card__img {
+  width: calc(100% + 3rem);
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  margin: -1.5rem -1.5rem 1rem;
+}
