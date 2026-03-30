@@ -1,6 +1,6 @@
 {
-  "heroHeadline": "Join the next workshop, or bring the work to your studio.",
-  "heroDescription": "Whether you want to register for an upcoming intensive, invite Ivano to teach at your school or festival, or simply ask a question -- reach out. Andrea and Ivano are here to help.",
+  "heroHeadline": "Join my next workshop, or bring the work to your studio.",
+  "heroDescription": "Whether you want to register for an upcoming intensive, invite me to teach at your school or festival, or simply ask a question -- reach out. Andrea and I are here to help.",
   "channels": [
     {
       "title": "Workshop registration",
@@ -10,7 +10,7 @@
     },
     {
       "title": "Guest teaching",
-      "description": "Invite Ivano to lead a guest workshop, intensive, or residency at your studio, school, or festival.",
+      "description": "Invite me to lead a guest workshop, intensive, or residency at your studio, school, or festival.",
       "subject": "Guest Teaching Inquiry",
       "label": "Inquire about guest teaching"
     },
@@ -22,7 +22,7 @@
     },
     {
       "title": "General inquiries",
-      "description": "Questions about the work, the pedagogy, or anything else? Andrea and Ivano are happy to help.",
+      "description": "Questions about the work, the pedagogy, or anything else? Andrea and I are happy to help.",
       "subject": "",
       "label": ""
     }
