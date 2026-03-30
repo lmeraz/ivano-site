@@ -8,7 +8,6 @@ interface Props {
   title?: string;
   description?: string;
   path?: string;
-  pageClass?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
@@ -19,7 +18,6 @@ const {
   title,
   description = siteSettings.description,
   path = Astro.url.pathname,
-  pageClass = "",
   structuredData,
 } = Astro.props;
 
@@ -61,14 +59,14 @@ const structured = structuredData
       ))
     }
   </head>
-  <body class={pageClass}>
+  <body>
     <a class="skip-link" href="#content">Skip to content</a>
     <div class="site-shell">
-      <Header currentPath={path} />
+      <Header currentPath={path} siteSettings={siteSettings} />
       <main id="content">
         <slot />
       </main>
-      <Footer />
+      <Footer siteSettings={siteSettings} />
     </div>
   </body>
 </html>

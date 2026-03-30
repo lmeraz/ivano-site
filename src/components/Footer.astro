@@ -1,8 +1,15 @@
 ---
-import { reader } from "../lib/reader";
+interface Props {
+  siteSettings: {
+    readonly name: string;
+    readonly role: string;
+    readonly baseCity: string;
+    readonly email: string;
+    readonly navigation: readonly { readonly label: string; readonly href: string }[];
+  };
+}
 
-const siteSettings = await reader.singletons.siteSettings.read();
-if (!siteSettings) throw new Error("Site settings not found");
+const { siteSettings } = Astro.props;
 ---
 
 <footer class="footer">
@@ -27,7 +34,7 @@ if (!siteSettings) throw new Error("Site settings not found");
       <h3>Connect</h3>
       <ul>
         <li><a href={`mailto:${siteSettings.email}`}>{siteSettings.email}</a></li>
-        <li>Based in {siteSettings.baseCity}, Italy</li>
+        <li>Based in {siteSettings.baseCity}</li>
         <li>International workshops and intensives</li>
       </ul>
     </div>

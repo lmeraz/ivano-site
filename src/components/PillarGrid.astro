@@ -1,11 +1,11 @@
 ---
 interface Pillar {
-  title: string;
-  description: string;
+  readonly title: string;
+  readonly description: string;
 }
 
 interface Props {
-  pillars: Pillar[];
+  pillars: readonly Pillar[];
 }
 
 const { pillars } = Astro.props;

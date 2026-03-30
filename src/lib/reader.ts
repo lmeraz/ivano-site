@@ -3,9 +3,17 @@ import keystaticConfig from "../../keystatic.config";
 
 export const reader = createReader(process.cwd(), keystaticConfig);
 
-export async function personSchema(path = "/") {
-  const siteSettings = await reader.singletons.siteSettings.read();
-  if (!siteSettings) throw new Error("Site settings not found");
+export function personSchema(
+  siteSettings: {
+    readonly name: string;
+    readonly role: string;
+    readonly description: string;
+    readonly email: string;
+    readonly siteUrl: string;
+    readonly baseCity: string;
+  },
+  path = "/",
+) {
   return {
     "@context": "https://schema.org" as const,
     "@type": "Person" as const,
