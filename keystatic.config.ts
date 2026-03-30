@@ -8,6 +8,7 @@ export default config({
     siteSettings: singleton({
       label: "Site Settings",
       path: "src/content/singletons/site-settings",
+      format: "json",
       schema: {
         name: fields.text({ label: "Name", validation: { isRequired: true } }),
         role: fields.text({ label: "Role" }),
@@ -31,6 +32,7 @@ export default config({
     home: singleton({
       label: "Home Page",
       path: "src/content/singletons/home",
+      format: "json",
       schema: {
         stats: fields.array(
           fields.object({
@@ -67,6 +69,7 @@ export default config({
     about: singleton({
       label: "About Page",
       path: "src/content/singletons/about",
+      format: "json",
       schema: {
         heroHeadline: fields.text({ label: "Hero Headline" }),
         heroDescription: fields.text({ label: "Hero Description", multiline: true }),
@@ -93,6 +96,7 @@ export default config({
     contact: singleton({
       label: "Contact Page",
       path: "src/content/singletons/contact",
+      format: "json",
       schema: {
         heroHeadline: fields.text({ label: "Hero Headline" }),
         heroDescription: fields.text({ label: "Hero Description", multiline: true }),
@@ -113,6 +117,7 @@ export default config({
     testimonials: singleton({
       label: "Testimonials",
       path: "src/content/singletons/testimonials",
+      format: "json",
       schema: {
         items: fields.array(
           fields.object({
@@ -130,6 +135,7 @@ export default config({
     faqs: singleton({
       label: "FAQs",
       path: "src/content/singletons/faqs",
+      format: "json",
       schema: {
         items: fields.array(
           fields.object({
@@ -149,6 +155,7 @@ export default config({
       label: "Workshops",
       slugField: "slug",
       path: "src/content/workshops/*",
+      format: "json",
       schema: {
         slug: fields.text({ label: "URL Slug", validation: { isRequired: true } }),
         title: fields.text({ label: "Title", validation: { isRequired: true } }),
@@ -202,6 +209,7 @@ export default config({
       label: "Past Workshops",
       slugField: "title",
       path: "src/content/past-workshops/*",
+      format: "json",
       schema: {
         title: fields.text({ label: "Title", validation: { isRequired: true } }),
         location: fields.text({ label: "Location", validation: { isRequired: true } }),
