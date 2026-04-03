@@ -10,6 +10,8 @@
 ## Architecture
 - Astro 6 site with hybrid output (static pages + SSR admin route), TypeScript strict mode
 - **Keystatic CMS** — content edited at `/keystatic` admin UI, stored as JSON in `src/content/`
+- `raw/` — unstructured client materials (markdown, Word docs, photos) used as source for content population
+- `docs/superpowers/specs/` — design specs for site features and tooling
 - `keystatic.config.ts` — CMS schema defining all singletons and collections
 - `src/lib/reader.ts` — shared Keystatic reader instance + `personSchema(siteSettings, path)` pure helper
 - `src/content/singletons/` — site settings, home, about, contact, testimonials, FAQs (JSON)
@@ -21,6 +23,7 @@
 - `src/pages/workshops/[slug].astro` — dynamic routes via `getStaticPaths()` from Keystatic reader
 
 ## Key Patterns
+- Client intake toolkit (`docs/superpowers/specs/2026-04-03-client-intake-toolkit-design.md`) defines the repeatable workflow for collecting content from new clients
 - Edit content via Keystatic admin UI or JSON files in `src/content/`, not in page templates
 - Pages read content via `reader.singletons.<name>.read()` and `reader.collections.<name>.all()`
 - Featured workshops use a `featured` boolean field, filtered on the home page
