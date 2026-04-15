@@ -179,7 +179,7 @@ ul, ol {
 
 /* ─── Sections ─── */
 .section {
-  padding-block: clamp(4rem, 7vw, 7rem);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
 }
 
 .section--tint {
