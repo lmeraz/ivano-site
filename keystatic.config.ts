@@ -1,9 +1,12 @@
 import { collection, config, fields, singleton } from "@keystatic/core";
 
 export default config({
-  storage: {
-    kind: "local",
-  },
+  storage: import.meta.env.DEV
+    ? { kind: "local" }
+    : {
+        kind: "github",
+        repo: "lmeraz/ivano-site",
+      },
   singletons: {
     siteSettings: singleton({
       label: "Site Settings",
