@@ -7,11 +7,17 @@
 - `make deploy` — build + deploy to Netlify production
 - Node >=22.12.0 required
 
+## Hosting & Deploy
+- **Netlify** auto-deploys from `main` on push — no manual deploy needed
+- Live at `https://ivanoworkshops.netlify.app` (custom domain TBD)
+- `docs/client-guide.md` — client editing guide for Keystatic
+- `docs/handoff-checklist.md` — remaining handoff steps
+
 ## Architecture
-- Astro 6 site with hybrid output (static pages + SSR admin route), TypeScript strict mode
+- Astro 6 site with static output, TypeScript strict mode
 - **Keystatic CMS** — content edited at `/keystatic` admin UI, stored as JSON in `src/content/`
-- `raw/` — unstructured client materials (markdown, Word docs, photos) used as source for content population
-- `docs/superpowers/specs/` — design specs for site features and tooling
+- Keystatic uses GitHub storage in production, local storage in dev (see `keystatic.config.ts`)
+- `@keystatic/astro` integration handles the SSR admin route automatically
 - `keystatic.config.ts` — CMS schema defining all singletons and collections
 - `src/lib/reader.ts` — shared Keystatic reader instance + `personSchema(siteSettings, path)` pure helper
 - `src/content/singletons/` — site settings, home, about, contact, testimonials, FAQs (JSON)
@@ -23,7 +29,6 @@
 - `src/pages/workshops/[slug].astro` — dynamic routes via `getStaticPaths()` from Keystatic reader
 
 ## Key Patterns
-- Client intake toolkit (`docs/superpowers/specs/2026-04-03-client-intake-toolkit-design.md`) defines the repeatable workflow for collecting content from new clients
 - Edit content via Keystatic admin UI or JSON files in `src/content/`, not in page templates
 - Pages read content via `reader.singletons.<name>.read()` and `reader.collections.<name>.all()`
 - Featured workshops use a `featured` boolean field, filtered on the home page
