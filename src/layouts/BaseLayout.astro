@@ -21,7 +21,7 @@ const {
   structuredData,
 } = Astro.props;
 
-const pageTitle = title ? `${title} | ${siteSettings.name}` : `${siteSettings.name} | Theatre Pedagogue`;
+const pageTitle = title ? `${title} | ${siteSettings.name}` : `${siteSettings.name} - Theatre Pedagogue | Performer`;
 const canonicalUrl = new URL(path, siteSettings.siteUrl).toString();
 const structured = structuredData
   ? Array.isArray(structuredData)
