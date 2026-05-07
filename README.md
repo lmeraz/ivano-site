@@ -2,8 +2,8 @@
 
 Marketing site for Ivano Conte — theatre pedagogue and workshop facilitator. Built with Astro 6, managed via Keystatic CMS, hosted on Netlify.
 
-Live site: [ivanoworkshops.com](https://www.ivanoworkshops.com)
-CMS (production): [ivanoworkshops.com/keystatic](https://www.ivanoworkshops.com/keystatic)
+Live site: [ivanoconte.com](https://ivanoconte.com)
+CMS (production): [ivanoconte.com/keystatic](https://ivanoconte.com/keystatic)
 
 ---
 
@@ -112,8 +112,8 @@ In production (Netlify), Keystatic uses GitHub storage mode. The following envir
 To rotate these: update the values in Netlify > Site configuration > Environment variables, then trigger a redeploy.
 
 The GitHub OAuth app should be configured with:
-- **Homepage URL:** `https://www.ivanoworkshops.com`
-- **Authorization callback URL:** `https://www.ivanoworkshops.com/api/keystatic/github/oauth/callback`
+- **Homepage URL:** `https://ivanoconte.com`
+- **Authorization callback URL:** `https://ivanoconte.com/api/keystatic/github/oauth/callback`
 
 ---
 

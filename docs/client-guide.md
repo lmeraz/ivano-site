@@ -6,7 +6,7 @@ Your website has a built-in content editor. You can change text, add workshops, 
 
 ### Logging In
 
-1. Go to **your-domain.com/keystatic** (your developer will confirm the exact URL)
+1. Go to **ivanoconte.com/keystatic**
 2. Click **Sign in with GitHub**
 3. Enter your GitHub username and password
 4. You are now in the admin dashboard
@@ -102,7 +102,7 @@ These changes need a developer to modify the code:
 
 ## Quick Reference
 
-- **Edit content:** your-domain.com/keystatic
-- **View your site:** your-domain.com
+- **Edit content:** ivanoconte.com/keystatic
+- **View your site:** ivanoconte.com
 - **Changes go live:** ~30 seconds after saving
 - **Need help?** Contact your developer

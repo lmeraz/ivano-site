@@ -6,7 +6,7 @@ import keystatic from "@keystatic/astro";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://www.ivanoworkshops.com",
+  site: "https://ivanoconte.com",
   output: "static",
   adapter: netlify(),
   integrations: [react(), keystatic(), sitemap()],

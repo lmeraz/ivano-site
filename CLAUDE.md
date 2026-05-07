@@ -9,7 +9,7 @@
 
 ## Hosting & Deploy
 - **Netlify** auto-deploys from `main` on push — no manual deploy needed
-- Live at `https://ivanoworkshops.netlify.app` (custom domain TBD)
+- Live at `https://ivanoconte.com` (Netlify subdomain `ivanoworkshops.netlify.app` is the build target)
 - `docs/client-guide.md` — client editing guide for Keystatic
 - `docs/handoff-checklist.md` — remaining handoff steps
 
