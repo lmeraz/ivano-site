@@ -5,10 +5,12 @@ import { reader } from "../../lib/reader";
 
 export async function getStaticPaths() {
   const allWorkshops = await reader.collections.workshops.all();
-  return allWorkshops.map((workshop: { slug: string; entry: Record<string, any> }) => ({
-    params: { slug: workshop.slug },
-    props: { workshop: { ...workshop.entry, slug: workshop.slug } },
-  }));
+  return allWorkshops
+    .filter((w: { entry: Record<string, any> }) => (import.meta.env.PROD ? !w.entry.archived : true))
+    .map((workshop: { slug: string; entry: Record<string, any> }) => ({
+      params: { slug: workshop.slug },
+      props: { workshop: { ...workshop.entry, slug: workshop.slug } },
+    }));
 }
 
 const { workshop } = Astro.props;

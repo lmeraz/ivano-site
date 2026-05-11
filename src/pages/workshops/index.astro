@@ -17,11 +17,16 @@ const [siteSettings, allWorkshops, allPastWorkshops, testimonialsData, faqsData]
 if (!siteSettings) throw new Error("Site settings not found");
 if (!testimonialsData) throw new Error("Testimonials not found");
 if (!faqsData) throw new Error("FAQs not found");
-const workshops = allWorkshops.map((w: { slug: string; entry: Record<string, any> }) => ({ ...w.entry, slug: w.slug }));
+const isVisible = (w: Record<string, any>) => (import.meta.env.PROD ? !w.archived : true);
+const workshops = allWorkshops
+  .map((w: { slug: string; entry: Record<string, any> }) => ({ ...w.entry, slug: w.slug }))
+  .filter(isVisible);
 const openWorkshops = workshops.filter((w: Record<string, any>) => w.status === "open");
 const waitlistWorkshops = workshops.filter((w: Record<string, any>) => w.status === "waitlist");
 const futureWorkshops = workshops.filter((w: Record<string, any>) => w.status === "soon");
-const pastWorkshops = allPastWorkshops.map((w: { entry: { title: string; location: string; dates: string } }) => w.entry);
+const pastWorkshops = allPastWorkshops
+  .map((w: { entry: { title: string; location: string; dates: string; archived?: boolean } }) => w.entry)
+  .filter(isVisible);
 
 const workshopModules = [
   { title: "Neutral Mask: Foundations of Presence", description: "A practical exploration of physical clarity and availability through the neutral mask. Focus areas include presence without tension, grounded movement, essential action free of excess, and responsiveness to space and impulse." },

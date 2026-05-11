@@ -18,7 +18,7 @@ if (!home) throw new Error("Home content not found");
 if (!testimonialsData) throw new Error("Testimonials not found");
 const featuredWorkshops = allWorkshops
   .map((w: { slug: string; entry: Record<string, any> }) => ({ ...w.entry, slug: w.slug }))
-  .filter((w: Record<string, any>) => w.featured);
+  .filter((w: Record<string, any>) => (import.meta.env.PROD ? !w.archived : true) && w.featured);
 ---
 
 <BaseLayout

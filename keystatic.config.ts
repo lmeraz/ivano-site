@@ -154,6 +154,7 @@ export default config({
       slugField: "slug",
       path: "src/content/workshops/*",
       format: "json",
+      columns: ["title", "status", "archived"],
       schema: {
         slug: fields.text({ label: "URL Slug", validation: { isRequired: true } }),
         title: fields.text({ label: "Title", validation: { isRequired: true } }),
@@ -207,6 +208,11 @@ export default config({
           { label: "Focus Areas" }
         ),
         moduleDescription: fields.text({ label: "Module Description", multiline: true }),
+        archived: fields.checkbox({
+          label: "Archived",
+          description: "Hide from the public site. The entry stays here for history.",
+          defaultValue: false,
+        }),
       },
     }),
     pastWorkshops: collection({
@@ -214,11 +220,17 @@ export default config({
       slugField: "slug",
       path: "src/content/past-workshops/*",
       format: "json",
+      columns: ["title", "dates", "archived"],
       schema: {
         slug: fields.text({ label: "Slug", validation: { isRequired: true } }),
         title: fields.text({ label: "Title", validation: { isRequired: true } }),
         location: fields.text({ label: "Location", validation: { isRequired: true } }),
         dates: fields.text({ label: "Dates", validation: { isRequired: true } }),
+        archived: fields.checkbox({
+          label: "Archived",
+          description: "Hide from the public site. The entry stays here for history.",
+          defaultValue: false,
+        }),
       },
     }),
   },
