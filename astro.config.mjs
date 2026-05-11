@@ -9,5 +9,8 @@ export default defineConfig({
   site: "https://ivanoconte.com",
   output: "static",
   adapter: netlify(),
+  redirects: {
+    "/login": "/keystatic",
+  },
   integrations: [react(), keystatic(), sitemap()],
 });
