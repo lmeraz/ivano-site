@@ -1,6 +1,6 @@
 # Ivano Workshops
 
-Marketing site for Ivano Conte — theatre pedagogue and workshop facilitator. Built with Astro 6, managed via Keystatic CMS, hosted on Netlify.
+Marketing site for Ivano Conte — theatre pedagogue and workshop facilitator. Built with Astro 5, managed via Keystatic CMS, hosted on Netlify.
 
 Live site: [ivanoconte.com](https://ivanoconte.com)
 CMS (production): [ivanoconte.com/keystatic](https://ivanoconte.com/keystatic)
@@ -11,7 +11,7 @@ CMS (production): [ivanoconte.com/keystatic](https://ivanoconte.com/keystatic)
 
 | Layer | Tool |
 |---|---|
-| Framework | Astro 6 (SSR via Netlify adapter) |
+| Framework | Astro 5 (SSR via Netlify adapter) |
 | CMS | Keystatic (GitHub storage in production) |
 | Hosting | Netlify |
 | Styling | Plain CSS |

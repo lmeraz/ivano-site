@@ -14,7 +14,7 @@
 - `docs/handoff-checklist.md` — remaining handoff steps
 
 ## Architecture
-- Astro 6 site with static output, TypeScript strict mode
+- Astro 5 site with static output, TypeScript strict mode
 - **Keystatic CMS** — content edited at `/keystatic` admin UI, stored as JSON in `src/content/`
 - Keystatic uses GitHub storage in production, local storage in dev (see `keystatic.config.ts`)
 - `@keystatic/astro` integration handles the SSR admin route automatically
