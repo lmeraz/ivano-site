@@ -1,5 +1,4 @@
 {
-  "slug": "commedia-dell-arte-la-2026",
   "title": "Commedia dell'Arte",
   "badge": "Los Angeles Intensive",
   "featured": true,
@@ -18,7 +17,6 @@
   "seats": "Limited",
   "status": "open",
   "statusLabel": "Registration open",
-  "registrationUrl": null,
   "fallbackUrl": "mailto:ivano.conte@gmail.com?subject=Commedia%20dell'Arte%20LA%20-%20Registration",
   "fallbackLabel": "Register by email",
   "audience": [
@@ -52,5 +50,6 @@
     "Rhythm, timing, and comic precision",
     "Vocal play and physical instinct"
   ],
-  "moduleDescription": "This workshop develops confidence, agility, and the capacity for quick, instinctive creative choices. A dynamic training in half-mask performance grounded in Commedia traditions."
+  "moduleDescription": "This workshop develops confidence, agility, and the capacity for quick, instinctive creative choices. A dynamic training in half-mask performance grounded in Commedia traditions.",
+  "archived": false
 }
