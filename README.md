@@ -143,4 +143,4 @@ storage: {
 
 ## Client Guide
 
-For non-technical instructions on how to use the CMS, see [`docs/user-guide.md`](docs/user-guide.md).
+For non-technical instructions on how to use the CMS, see [`docs/client-guide.md`](docs/client-guide.md).
