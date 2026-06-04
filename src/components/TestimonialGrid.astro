@@ -1,4 +1,6 @@
 ---
+import { mdInline } from "../lib/markdown";
+
 interface Testimonial {
   readonly name: string;
   readonly credit: string;
@@ -18,11 +20,11 @@ const { testimonials, expandable = false } = Astro.props;
   {
     testimonials.map((testimonial) => (
       <blockquote class="quote-card reveal">
-        <p>"{testimonial.quote}"</p>
+        <p set:html={`"${mdInline(testimonial.quote)}"`} />
         {expandable && testimonial.fullQuote && (
           <details class="quote-card__details">
             <summary>Read full testimonial</summary>
-            <p>"{testimonial.fullQuote}"</p>
+            <p set:html={`"${mdInline(testimonial.fullQuote)}"`} />
           </details>
         )}
         <footer>

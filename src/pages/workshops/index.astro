@@ -6,6 +6,7 @@ import TestimonialGrid from "../../components/TestimonialGrid.astro";
 import WorkshopCard from "../../components/WorkshopCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { reader } from "../../lib/reader";
+import { md } from "../../lib/markdown";
 
 const [siteSettings, allWorkshops, allPastWorkshops, testimonialsData, faqsData] = await Promise.all([
   reader.singletons.siteSettings.read(),
@@ -121,7 +122,7 @@ const workshopModules = [
         faqsData.items.map((item: { question: string; answer: string }) => (
           <details class="faq-item reveal">
             <summary>{item.question}</summary>
-            <p>{item.answer}</p>
+            <div class="rich-text" set:html={md(item.answer)} />
           </details>
         ))
       }

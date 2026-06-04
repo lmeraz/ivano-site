@@ -2,6 +2,7 @@
 import SectionTitle from "../../components/SectionTitle.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { reader } from "../../lib/reader";
+import { md, mdInline } from "../../lib/markdown";
 
 export async function getStaticPaths() {
   const allWorkshops = await reader.collections.workshops.all();
@@ -66,7 +67,7 @@ const primaryCta = workshop.registrationUrl
     <div class="page-hero__inner reveal">
       <p class="eyebrow">{workshop.badge}</p>
       <h1>{workshop.title}</h1>
-      <p>{workshop.lead}</p>
+      <p set:html={mdInline(workshop.lead)} />
     </div>
     <aside class="page-hero__aside reveal">
       <div class="detail-card detail-card--sticky">
@@ -102,7 +103,7 @@ const primaryCta = workshop.registrationUrl
       <div class="detail-main">
         <article class="info-card reveal">
           <h2>Overview</h2>
-          <p>{workshop.summary}</p>
+          <div class="rich-text" set:html={md(workshop.summary)} />
         </article>
 
         <article class="info-card reveal">
@@ -127,7 +128,7 @@ const primaryCta = workshop.registrationUrl
             {workshop.schedule.map((step: { label: string; detail: string }) => (
               <div class="schedule-step">
                 <h3>{step.label}</h3>
-                <p>{step.detail}</p>
+                <div class="rich-text" set:html={md(step.detail)} />
               </div>
             ))}
           </div>
@@ -154,13 +155,13 @@ const primaryCta = workshop.registrationUrl
       <div class="philosophy-grid">
         {workshop.focusAreas.map((area: string) => (
           <article class="info-card reveal">
-            <p>{area}</p>
+            <p set:html={mdInline(area)} />
           </article>
         ))}
       </div>
       {workshop.moduleDescription && (
         <div class="section__footer reveal">
-          <p>{workshop.moduleDescription}</p>
+          <div class="rich-text" set:html={md(workshop.moduleDescription)} />
         </div>
       )}
     </section>

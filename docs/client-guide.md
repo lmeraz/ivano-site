@@ -38,7 +38,23 @@ From the dashboard sidebar, you will see:
 1. Click the section you want to edit in the sidebar
 2. Change any field in the form
 3. Click **Save** at the top
-4. Your site rebuilds automatically -- changes are live in about 30 seconds
+4. Your site rebuilds automatically -- changes are live in about a minute
+
+### Formatting Your Text (Lists, Bold, Links)
+
+Most of the longer text boxes accept simple **Markdown** formatting. Type these symbols and they turn into real formatting on the live site:
+
+- **Bulleted list** -- start each line with a dash and a space:
+  ```
+  - First item
+  - Second item
+  ```
+- **New paragraph** -- leave a blank line between two paragraphs.
+- **Bold** -- wrap words in two asterisks: `**important**`
+- **Italic** -- wrap words in one asterisk: `*gentle*`
+- **Link** -- write `[text to show](https://example.com)`
+
+This works in the longer text areas -- biography, page and section descriptions, workshop summaries, FAQ answers, and the like. Short single-line fields (titles, badges, dates) stay plain text.
 
 ### Adding a New Workshop
 
@@ -104,5 +120,5 @@ These changes need a developer to modify the code:
 
 - **Edit content:** ivanoconte.com/keystatic
 - **View your site:** ivanoconte.com
-- **Changes go live:** ~30 seconds after saving
+- **Changes go live:** about 1 minute after saving
 - **Need help?** Contact your developer

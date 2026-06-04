@@ -1,4 +1,6 @@
 ---
+import { md } from "../lib/markdown";
+
 interface Pillar {
   readonly title: string;
   readonly description: string;
@@ -16,7 +18,7 @@ const { pillars } = Astro.props;
     pillars.map((pillar) => (
       <article class="info-card reveal">
         <h3>{pillar.title}</h3>
-        <p>{pillar.description}</p>
+        <div class="rich-text" set:html={md(pillar.description)} />
       </article>
     ))
   }

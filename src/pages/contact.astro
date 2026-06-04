@@ -2,6 +2,7 @@
 import SectionTitle from "../components/SectionTitle.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { reader } from "../lib/reader";
+import { md, mdInline } from "../lib/markdown";
 
 const [siteSettings, contact] = await Promise.all([
   reader.singletons.siteSettings.read(),
@@ -26,7 +27,7 @@ const channels = contact.channels.map((ch: { title: string; description: string;
     <div class="page-hero__inner reveal">
       <p class="eyebrow">Contact</p>
       <h1>{contact.heroHeadline}</h1>
-      <p>{contact.heroDescription}</p>
+      <p set:html={mdInline(contact.heroDescription)} />
     </div>
     <aside class="page-hero__aside reveal">
       <div class="portrait-card">
@@ -52,7 +53,7 @@ const channels = contact.channels.map((ch: { title: string; description: string;
         channels.map((channel: { title: string; description: string; href: string; label: string }) => (
           <article class="contact-card reveal">
             <h2>{channel.title}</h2>
-            <p>{channel.description}</p>
+            <div class="rich-text" set:html={md(channel.description)} />
             <a class="button button--ghost" href={channel.href}>{channel.label}</a>
           </article>
         ))

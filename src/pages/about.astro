@@ -5,6 +5,7 @@ import PillarGrid from "../components/PillarGrid.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { reader, personSchema } from "../lib/reader";
+import { md, mdInline } from "../lib/markdown";
 
 const [siteSettings, about] =
   await Promise.all([
@@ -24,7 +25,7 @@ if (!about) throw new Error("About content not found");
     <div class="page-hero__inner reveal">
       <p class="eyebrow">Movement, Theatre & Creative Inquiry</p>
       <h1>{about.heroHeadline}</h1>
-      <p>{about.heroDescription}</p>
+      <p set:html={mdInline(about.heroDescription)} />
     </div>
     <aside class="page-hero__aside reveal">
       <div class="portrait-card">
@@ -49,7 +50,7 @@ if (!about) throw new Error("About content not found");
       <div class="story-stack">
         {about.bioParagraphs.map((para: string) => (
           <article class="info-card reveal">
-            <p>{para}</p>
+            <div class="rich-text" set:html={md(para)} />
           </article>
         ))}
       </div>
