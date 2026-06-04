@@ -463,6 +463,37 @@ ul, ol {
   margin-top: 0.75rem;
 }
 
+.rich-text > * + * {
+  margin-top: 0.75rem;
+}
+
+.rich-text ul,
+.rich-text ol {
+  padding-left: 1.2rem;
+}
+
+.rich-text ul {
+  list-style: disc;
+}
+
+.rich-text ol {
+  list-style: decimal;
+}
+
+.rich-text li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.rich-text li + li {
+  margin-top: 0.4rem;
+}
+
+.rich-text a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* ─── Workshop card ─── */
 .workshop-card__header {
   display: flex;

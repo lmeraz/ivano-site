@@ -1,4 +1,6 @@
 ---
+import { mdInline } from "../lib/markdown";
+
 interface Workshop {
   slug: string;
   title: string;
@@ -44,7 +46,7 @@ const { workshop } = Astro.props;
   </div>
 
   <h3>{workshop.title}</h3>
-  <p class="workshop-card__strapline">{workshop.strapline}</p>
+  <p class="workshop-card__strapline" set:html={mdInline(workshop.strapline)} />
 
   <ul class="meta-list">
     <li><strong>Date</strong><span>{workshop.dateLabel}</span></li>
